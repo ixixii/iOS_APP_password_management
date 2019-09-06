@@ -1,0 +1,75 @@
+屌丝逆袭step 01.密码管理app_开发笔记
+20190905 22:26
+todo list 1: 新建xcode项目,pods初始化 √
+gem sources --remove https://rubygems.org/
+gem sources --add https://gems.ruby-china.com/
+gem sources -l
+sudo gem install -n /usr/local/bin cocoapods
+
+参考链接: https://www.jianshu.com/p/ab6411a05bc2
+
+iOS适配 11.3以上
+
+------------
+
+todo list 2: github初始化  √
+新建 .gitignore
+在里面写上Pods,表示Pods目录不需要git来管理,因为它是pod install自动生成的
+
+git init 
+
+git status 
+
+git add --all
+
+git status 
+
+git commit -m 'iOS 密码管理app 第一次提交'
+
+git remote add origin https://github.com/ixixii/iOS_APP_password_management.git
+git push -u origin master
+
+git pull origin master
+git push origin master
+
+刷新一下网页,看一下效果
+
+------------
+
+todo list 3: 创建证书,真机调试 √
+https://developer.apple.com/account/ios/profile/limited/create
+
+调试用的描述文件
+上架用的描述文件
+
+todo list 4: app logo √
+
+todo list 5: app 基本信息填写 √
+功能:  1.注册
+      2.登录
+      3.列表
+      4.新增
+      5.删除
+      6.修改
+      7.搜索
+
+
+todo list 6: 使用testflight进行测试  √
+提交代码
+git status 
+git add —all
+git commit -a -m "新增app图标"
+git pull origin master
+git push origin master
+
+todo list 7: 实现后台接口,crud
+Java框架
+
+todo list 8: 实现app前台界面(含Logo)
+
+todo list 9: 上架appstore
+
+todo list 10: 实现web前台界面
+
+todo list 11: 变现(插入alimama广告 or 转让app)
+
