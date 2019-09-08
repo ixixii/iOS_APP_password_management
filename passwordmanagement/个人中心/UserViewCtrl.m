@@ -1,44 +1,36 @@
 //
-//  LoginViewCtrl.m
+//  UserViewCtrl.m
 //  passwordmanagement
 //
 //  Created by beyond on 2019/09/08.
 //  Copyright © 2019 beyond. All rights reserved.
 //
 
-#import "LoginViewCtrl.h"
+#import "UserViewCtrl.h"
 #import "SVProgressHUD.h"
-@interface LoginViewCtrl ()
+@interface UserViewCtrl ()
 
 @end
 
-@implementation LoginViewCtrl
+@implementation UserViewCtrl
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
-- (IBAction)loginBtnClicked:(UIButton *)sender {
-    // 1. 通过自定义的方法返回登录请求
-    NSURLRequest *request = [self postLoginRequest];
-    // 2. 开始同步连接
-    // 同步请求需要几个参数
-    // 1) 请求，已经准备好了
-    // 2) 响应，所为响应，就是服务器给你的响应
-    // 3) 错误，因为网络连接有可能出错。
-    // 在写网络访问程序的时候，一定要有出错处理，提醒用户。
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)logoutBtnClicked:(UIButton *)sender {
+    // 发请请求Post
+    NSURLRequest *request = [self postLogoutRequest];
     NSURLResponse *response = nil;
     NSError *error = nil;
     // 同步请求是一定返回结果后才会继续的！
     NSData *data = [NSURLConnection sendSynchronousRequest:request
                                          returningResponse:&response error:&error];
-    // 给一个填充错误的地址，有可能会延时网络访问时间
-    NSLog(@"访问完成");
-    // 3. 获取数据
-    // 可能会返回什么数据？
-    // 1) 返回请求的结果！解码！！！！！解码成我们认识的字符串
-    // 2) 请求出现错误！
-    // 3) 返回空数据！
     if (error != nil) {
         NSLog(@"访问出错：%@", error.localizedDescription);
         return;
@@ -50,24 +42,19 @@
         NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         NSLog(@"sg__%@",responseDict);
         NSInteger isSuccess = [[responseDict objectForKey:@"isSuccess"] integerValue];
+        NSString *descStr = [responseDict objectForKey:@"desc"];
         if(isSuccess == 0){
             // 弹出失败原因
-            NSString *descStr = [responseDict objectForKey:@"desc"];
             [SVProgressHUD showErrorWithStatus:descStr];
         }else if(isSuccess == 1){
-            // 登录成功
-            NSDictionary *descDict = [responseDict objectForKey:@"desc"];
-            NSString *sessionid = [descDict objectForKey:@"sessionid"];
-            NSString *msgStr = [descDict objectForKey:@"msg"];
-            // 保存session到本地
-            NSLog(@"sg--");
-            // [[NSUserDefaults standardUserDefaults] objectForKey:@""]
-            [[NSUserDefaults standardUserDefaults]setObject:sessionid forKey:@"userDefault_sessionid"];
+            // 退出成功
+            // 清除本地sessionid
+            [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"userDefault_sessionid"];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            // 弹出登录成功消息
-            [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"登录成功,%@",msgStr]];
+            // 弹出退出成功消息
+            [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"退出成功,%@",descStr]];
             // 回调/通知 刷新主界面
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_loginSuccess" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_logoutSuccess" object:nil];
             // 关闭控制器
             [self dismissViewControllerAnimated:YES completion:nil];
             
@@ -76,14 +63,20 @@
         NSLog(@"没有接收到数据！");
         [SVProgressHUD showErrorWithStatus:@"请检查网络!"];
     }
+    
+    
+    
+    // 发出通知,让其他控制器,更新状态
+    
+    // 回到主界面
+    
 }
 
-#pragma mark - post请求
 // 建立Post登录请求
-- (NSURLRequest *)postLoginRequest
+- (NSURLRequest *)postLogoutRequest
 {
     // 1. 确定地址URL
-    NSString *urlString = @"http://sg31.com/ci/pwdmgmt/login";
+    NSString *urlString = @"http://sg31.com/ci/pwdmgmt/logout";
     NSURL *url = [NSURL URLWithString:urlString];
     // 2. 建立可变请求
     // 1）建立可变请求，是要修改请求，所以要用NSMutableURLRequest
@@ -94,7 +87,8 @@
     // post字符串不区分大小写，POST
     [request setHTTPMethod:@"post"];
     // 4) 建立请求"数据体"，因为要把这个数据体传送给服务器。
-    NSString *bodyString = [NSString stringWithFormat:@"username=%@&password=%@", self.xib_textField_username.text, self.xib_textField_password.text];
+    NSString *localSessionID = [[NSUserDefaults standardUserDefaults]objectForKey:@"userDefault_sessionid"];
+    NSString *bodyString = [NSString stringWithFormat:@"sessionid=%@",localSessionID];
     NSLog(@"数据体字符串：%@", bodyString);
     // 将生成的字符串转换成数据
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
@@ -104,19 +98,5 @@
     // 返回了一个完整的用户登录请求
     return request;
 }
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

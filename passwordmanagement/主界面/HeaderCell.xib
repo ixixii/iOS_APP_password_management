@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCellID" id="KGk-i7-Jjw" customClass="HeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帐号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpp-bk-oBE">
+                        <rect key="frame" x="5" y="2" width="67" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPY-xV-moh">
+                        <rect key="frame" x="271.5" y="0.0" width="43.5" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="tPY-xV-moh" secondAttribute="height" multiplier="1:1" id="Hw5-kv-Unb"/>
+                        </constraints>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="ywA-ES-bvx">
+                        <rect key="frame" x="273.5" y="2" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ywA-ES-bvx" secondAttribute="height" multiplier="9:9" id="Ulp-qc-pUT"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mpp-bk-oBE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="DmQ-6b-QNM"/>
+                    <constraint firstItem="ywA-ES-bvx" firstAttribute="height" secondItem="mpp-bk-oBE" secondAttribute="height" id="Gq3-TK-Pto"/>
+                    <constraint firstItem="tPY-xV-moh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GzS-WK-Atg"/>
+                    <constraint firstAttribute="bottom" secondItem="tPY-xV-moh" secondAttribute="bottom" id="Rm8-Nd-trD"/>
+                    <constraint firstItem="mpp-bk-oBE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Sub-Ja-Tyq"/>
+                    <constraint firstItem="tPY-xV-moh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Tv6-X2-DWh"/>
+                    <constraint firstAttribute="trailing" secondItem="tPY-xV-moh" secondAttribute="trailing" constant="5" id="ovi-ZG-MRL"/>
+                    <constraint firstItem="tPY-xV-moh" firstAttribute="centerY" secondItem="ywA-ES-bvx" secondAttribute="centerY" id="py4-Jx-vUz"/>
+                    <constraint firstItem="tPY-xV-moh" firstAttribute="centerX" secondItem="ywA-ES-bvx" secondAttribute="centerX" id="sX2-EH-FUb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="xib_headerBtn" destination="tPY-xV-moh" id="rrZ-Zn-dWq"/>
+            </connections>
+            <point key="canvasLocation" x="-148.80000000000001" y="14.392803598200901"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="header_btn.png" width="24" height="24"/>
+    </resources>
+</document>

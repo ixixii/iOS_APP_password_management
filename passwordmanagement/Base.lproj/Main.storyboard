@@ -23,6 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="foH-EN-Ck7" id="yWX-dS-xca"/>
+                                    <outlet property="delegate" destination="foH-EN-Ck7" id="q2c-ZJ-a0x"/>
                                 </connections>
                             </tableView>
                         </subviews>
