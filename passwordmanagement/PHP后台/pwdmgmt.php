@@ -133,7 +133,7 @@ class Pwdmgmt extends CI_Controller {
         if(count($arr) > 0){
             // 查到了登录的用户
             $userid = $arr[0]['userid'];
-            $sql = "select * from pwdmgmt_account where userid = ?";
+            $sql = "select * from pwdmgmt_account where userid = ? order by ID desc";
             $accountArr = $this->db->query($sql,array($userid))->result_array();
             if(count($accountArr) > 0){
                 $responseArr = array();

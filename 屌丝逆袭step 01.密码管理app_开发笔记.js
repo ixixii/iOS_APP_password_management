@@ -401,9 +401,23 @@ phpmyadmin里MySQL字符集:cp1252 West European (latin1) ，解决乱码问题
 补充一句: 在插入数据前,先将My SQL的连接校对 也改成 utf8_general_ci,再插入数据
 ===========
 
++ (NSString *)timeStringFromTimeStamp:(NSString *)timeStampStr
+{
+    // 如果本身是: 2019-10-02 09:10:12格式,那么直接return
+    if([timeStampStr containsString:@":"]){
+        return timeStampStr;
+    }
+    NSTimeInterval _interval=[timeStampStr doubleValue] / 1.0;
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
+    NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
+    [objDateformat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *tmpTimeStr = [objDateformat stringFromDate: date];
+    return tmpTimeStr;
+}
 
-
-
+插入一句: 如果取消apple id的订阅?
+答: 设置-iTunes Store与App Store-查看AppleID-订阅
 
 
 

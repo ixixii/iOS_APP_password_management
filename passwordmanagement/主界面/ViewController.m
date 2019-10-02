@@ -30,6 +30,10 @@
     [super viewDidLoad];
 //    [self.tableView registerClass:[SGTableViewCell class] forCellReuseIdentifier:@"sgtableviewcellid"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.tableView.estimatedRowHeight = 320; // 设置估算高度
+    self.tableView.rowHeight = UITableViewAutomaticDimension; // 告诉tableView我们cell的高度是自动的
+    
     // 右上角的按钮
     [self addRightBtn];
     // 注册通知
@@ -180,7 +184,7 @@
     if(indexPath.row == 0){
         return [HeaderCell cellHeight];
     }else{
-        return 550;
+        return UITableViewAutomaticDimension;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

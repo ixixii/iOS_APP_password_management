@@ -141,19 +141,19 @@
     }
     
     if(model.createtime.length > 0){
-        self.xib_label_createtime.text = [NSString stringWithFormat:@"创建日期: %@",model.createtime];
+        self.xib_label_createtime.text = [NSString stringWithFormat:@"创建日期: %@",[SGTableViewCell timeStringFromTimeStamp:model.createtime]];
     }else{
         self.xib_label_createtime.text = @"";
     }
     
     if(model.updatetime.length > 0){
-        self.xib_label_updatetime.text = [NSString stringWithFormat:@"更新日期: %@",model.updatetime];
+        self.xib_label_updatetime.text = [NSString stringWithFormat:@"更新日期: %@",[SGTableViewCell timeStringFromTimeStamp:model.updatetime]];
     }else{
         self.xib_label_updatetime.text = @"";
     }
     
     if(model.expiredate.length > 0){
-        self.xib_label_expiredate.text = [NSString stringWithFormat:@"过期日期: %@",model.expiredate];
+        self.xib_label_expiredate.text = [NSString stringWithFormat:@"过期日期: %@",[SGTableViewCell timeStringFromTimeStamp:model.expiredate]];
     }else{
         self.xib_label_expiredate.text = @"";
     }
@@ -178,5 +178,20 @@
     }
     
     return self;
+}
+
++ (NSString *)timeStringFromTimeStamp:(NSString *)timeStampStr
+{
+    // 如果本身是: 2019-10-02 09:10:12格式,那么直接return
+    if([timeStampStr containsString:@":"] || [timeStampStr containsString:@"-"]){
+        return timeStampStr;
+    }
+    NSTimeInterval _interval=[timeStampStr doubleValue] / 1.0;
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
+    NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
+    [objDateformat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *tmpTimeStr = [objDateformat stringFromDate: date];
+    return tmpTimeStr;
 }
 @end
