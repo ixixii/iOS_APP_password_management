@@ -109,7 +109,78 @@ class Pwdmgmt extends CI_Controller {
             $responseArr['desc'] = '未查到使用该session的登录用户';
             echo json_encode($responseArr);
         }
+    }
 
+    // 查询列表接口
+    // http://sg31.com/ci/pwdmgmt/list
+    public function accountlist(){
+        // 如果是get请求,则直接Return
+        $isGet = $_SERVER['REQUEST_METHOD'] == 'GET';
+        if($isGet){
+            $responseArr = array();
+            $responseArr['isSuccess'] = 0;
+            $responseArr['desc'] = '不支持Get请求';
+            echo json_encode($responseArr);
+            return;
+        }
+
+        // app提交过来的post请求中有sessionid
+        $sessionid = isset($_POST['sessionid'])? htmlspecialchars($_POST['sessionid']) : '';
+        // 根据sessionid查出userid,再根据userid查询pwdmgmt_account表中,该userid的所有帐号(后期可分页)
+        $sql = "select userid from pwdmgmt_session where sessionid = ?";
+        $res = $this->db->query($sql,array($sessionid));
+        $arr = $res->result_array();
+        if(count($arr) > 0){
+            // 查到了登录的用户
+            $userid = $arr[0]['userid'];
+            $sql = "select * from pwdmgmt_account where userid = ?";
+            $accountArr = $this->db->query($sql,array($userid))->result_array();
+            if(count($accountArr) > 0){
+                $responseArr = array();
+                $responseArr['isSuccess'] = 1;
+                $responseArr['desc'] = $accountArr;
+                echo json_encode($responseArr);
+                /*
+                {
+    "isSuccess": 1,
+    "accountArr": [{
+        "id": "1",
+        "userid": "1d03c7a1189f4f428df0377ce505bbc0",
+        "accounttype": "QQ",
+        "account": "308829827",
+        "loginpassword": "1*8\u00c8\u00a6\u00c8\u00a6",
+        "paypassword": "5*8",
+        "username": "beyond",
+        "telephone": "157*67",
+        "email": "308829827@qq.com",
+        "securityemail": "\u00c3\u00dc\u00b1\u00a3\u00d3\u00ca\u00cf\u00e4\u00cd\u00fc\u00c1\u00cb",
+        "securityquestion": "\u00c3\u00dc\u00b1\u00a3\u00ce\u00ca\u00cc\u00e2\u00cd\u00fc\u00c1\u00cb",
+        "loginby": "\u00ca\u00b9\u00d3\u00c3QQ\u00ba\u00c5\u00b5\u00c7\u00c2\u00bc,308829827",
+        "loginurl": "\u00b5\u00c7\u00c2\u00bc\u00b5\u00d8\u00d6\u00b7\u00ce\u00aa\u00b8\u00f7\u00c6\u00bd\u00cc\u00a8\u00b5\u00c4QQ\u00c8\u00ed\u00bc\u00fe",
+        "website": "\u00cd\u00f8\u00d6\u00b7\u00d3\u00c3QQ\u00b9\u00d9\u00cd\u00f8",
+        "shareurl": "QQ\u00b6\u00fe\u00ce\u00ac\u00c2\u00eb\u00c3\u00fb\u00c6\u00ac\u00c1\u00b4\u00bd\u00d3",
+        "ipaddress": "\u00b7\u00fe\u00ce\u00f1\u00c6\u00f7\u00d3\u00c3\u00b5\u00c4ip\u00b5\u00d8\u00d6\u00b7",
+        "cardno": "\u00d2\u00f8\u00d0\u00d0\u00bf\u00a8\u00d3\u00c3\u00b5\u00c4",
+        "cardaddress": "\u00d2\u00f8\u00d0\u00d0\u00bf\u00a8\u00bf\u00aa\u00bb\u00a7\u00d0\u00d0",
+        "billdate": "\u00d5\u00cb\u00b5\u00a5\u00c8\u00d5,\u00d0\u00c5\u00d3\u00c3\u00bf\u00a8\/\u00bb\u00a8\u00df\u00c2",
+        "paydate": "\u00b8\u00b6\u00bf\u00ee\u00c8\u00d5,\u00d0\u00c5\u00d3\u00c3\u00bf\u00a8\/\u00bb\u00a8\u00df\u00c2",
+        "createtime": "1569835767",
+        "updatetime": "1569835767",
+        "expiredate": "\u00d0\u00c5\u00d3\u00c3\u00bf\u00a8\/\u00d5\u00ca\u00ba\u00c5\/\u00c3\u00dc\u00c2\u00eb\/VIP\u00b5\u00c4\u00b9\u00fd\u00c6\u00da\u00c8\u00d5\u00c6\u00da",
+        "isvip": "\u00b2\u00bb\u00ca\u00c7VIP",
+        "isvpn": "\u00b2\u00bb\u00d0\u00e8\u00d2\u00aaVPN",
+        "usedpassword": null,
+        "remark": "\u00b1\u00b8\u00d7\u00a2"
+    }]
+}
+                */ 
+            }
+        }else{
+            $responseArr = array();
+            $responseArr['isSuccess'] = 0;
+            $responseArr['desc'] = '未查到使用该session的登录用户';
+            echo json_encode($responseArr);
+        }
     }
 
     // 录入到where表格中,并且返回另一半的地址

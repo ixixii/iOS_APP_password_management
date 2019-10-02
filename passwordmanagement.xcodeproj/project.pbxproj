@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3060EA2723430C0600E847D6 /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3060EA2523430C0600E847D6 /* AccountModel.m */; };
 		30C007932324D4AB000B2538 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C0076C2324D4AA000B2538 /* SVRadialGradientLayer.m */; };
 		30C007942324D4AB000B2538 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C0076F2324D4AA000B2538 /* MBProgressHUD+NJ.m */; };
 		30C007952324D4AB000B2538 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C007732324D4AA000B2538 /* SVProgressHUD.m */; };
@@ -46,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		205591C7DFCB69F52FDFB7E1 /* libPods-passwordmanagement.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-passwordmanagement.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3060EA2523430C0600E847D6 /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountModel.m; sourceTree = "<group>"; };
+		3060EA2623430C0600E847D6 /* AccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
 		30C0076C2324D4AA000B2538 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		30C0076D2324D4AA000B2538 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		30C0076E2324D4AA000B2538 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -122,6 +125,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3060EA2023430BC500E847D6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				3060EA2623430C0600E847D6 /* AccountModel.h */,
+				3060EA2523430C0600E847D6 /* AccountModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		3060EA2123430BC500E847D6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		30C0076B2324D4AA000B2538 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +201,8 @@
 		30C007A823253368000B2538 /* 主界面 */ = {
 			isa = PBXGroup;
 			children = (
+				3060EA2023430BC500E847D6 /* model */,
+				3060EA2123430BC500E847D6 /* view */,
 				30C007AF23253398000B2538 /* ViewController.h */,
 				30C007AE23253397000B2538 /* ViewController.m */,
 				30C007A923253368000B2538 /* SGTableViewCell.m */,
@@ -399,6 +420,7 @@
 				30C007952324D4AB000B2538 /* SVProgressHUD.m in Sources */,
 				30C0079B2324D4AB000B2538 /* NSObject+MJKeyValue.m in Sources */,
 				30C007A12324D4AB000B2538 /* MJMethod.m in Sources */,
+				3060EA2723430C0600E847D6 /* AccountModel.m in Sources */,
 				30C0079D2324D4AB000B2538 /* MJType.m in Sources */,
 				30C007B4232533CB000B2538 /* HeaderCell.m in Sources */,
 				30C007942324D4AB000B2538 /* MBProgressHUD+NJ.m in Sources */,

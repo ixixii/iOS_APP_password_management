@@ -105,6 +105,7 @@ sessionid varchar255
 pubtime varchar20
 
 登录接口写完  √
+http://sg31.com/ci/pwdmgmt/login
 // 登录接口
     public function login(){
         // 如果是get请求,则直接Return
@@ -169,7 +170,7 @@ pubtime varchar20
     }
 
 退出登录接口  √
-
+http://sg31.com/ci/pwdmgmt/logout
 // 退出登录接口
     public function logout(){
         // 如果是get请求,则直接Return
@@ -256,6 +257,155 @@ headerView的右方是一个个人头像 √
 
 5. 主界面获取帐号列表 
 接口3: 查询帐号列表
+==============================
+建表 pwdmgmt_account
+
+id,int11, 	id 1, 
+userid, varchar255, 用户id 这个至关重要,首先根据app传来的sessionid,查出userid,再根据userid查相应的帐号列表
+accounttype,	类型 qq, 
+account,	帐号 308829827,
+
+loginpassword,	登录密码 6*7圈圈,
+paypassword,	支付密码 6*7,
+usedpassword,	用过的密码: 保存用过/修改过的旧密码
+
+
+username,	用户名 beyond,
+telephone,	注册手机号 166*67,
+
+email,	注册邮箱 308829827@qq.com,
+securityemail,	安全邮箱 null,找回密码用
+securityquestion,	密保问题和答案: whoareyoubrucelee,
+
+loginby,	登录方式:使用手机号/用户名/email/qq/weixin登录,后面跟具体的号码
+loginurl,   登录地址:网站/网银/后台 用
+website,	网址: http://308829827.qzone.qq.com,官网
+shareurl,	推广链接: 分享注册用,
+ipaddress,	登录ip: 192.168.1.1,服务器用
+
+cardno,	卡号 null,银行卡用
+cardaddress,	开户地: 湖南衡阳,银行卡用
+
+billdate,varchar20,账单日,信用卡/花呗
+paydate,varchar20,付款日,信用卡/花呗
+
+createtime,varchar20,	注册日期: 20190910,
+updatetime,varchar20,	更新日期: 20190912,最近一次更新字段的时间
+expiredate,varchar20,	过期日期: 20200922,信用卡/帐号/密码/VIP的过期时间
+
+isvip,	是不是VIP: 视频会员用,
+isvpn	是否需要VPN,默认为否
+
+remark	备注: 没有的字段使用备注
+
+
+
+
+==============================
+id
+userid
+accounttype
+account
+
+loginpassword
+paypassword
+usedpassword
+
+username
+telephone
+
+email
+securityemail
+securityquestion
+
+loginby
+loginurl
+website
+shareurl
+ipaddress
+
+cardno
+cardaddress
+
+billdate
+paydate
+
+createtime
+updatetime
+expiredate
+
+isvip
+isvpn
+
+usedpassword
+remark
+
+
+
+
+---------
+约定
+如果值有多个,使用逗号分隔
+如果值有名称,使用|分隔
+例如:
+网站: 百度|www.baidu.com,腾讯|www.qq.com
+
+5.1 建表 √
+
+5.2 加一条数据 √
+INSERT INTO  `pwdmgmt_account` (  `ID` ,  `accounttype` ,  `account` ,  `loginpassword` ,  `paypassword` ,  `username` ,  `telephone` ,  `email` , `securityemail` ,  `securityquestion` ,  `loginby` ,  `loginurl` ,  `website` ,  `shareurl` ,  `ipaddress` ,  `cardno` ,  `cardaddress` ,  `billdate` ,  `paydate` , `createtime` ,  `updatetime` ,  `expiredate` ,  `isvip` ,  `isvpn` ,  `usedpassword` ,  `remark` ) 
+VALUES (
+'1',  'QQ',  '308829827',  '1*8圈圈',  '5*8',  'beyond',  '157*67',  '308829827@qq.com',  '密保邮箱忘了',  '密保问题忘了',  '使用QQ号登录,308829827', '登录地址为各平台的QQ软件',  '网址用QQ官网',  'QQ二维码名片链接',  '服务器用的ip地址',  '银行卡用的',  '银行卡开户行',  '账单日,信用卡/花呗',  '付款日,信用卡/花呗', '1569835767',  '1569835767',  '信用卡/帐号/密码/VIP的过期日期',  '不是VIP',  '不需要VPN', NULL ,  '备注'
+);
+
+5.3 写查询接口
+app发送查询请求时,将sessionid发送给服务器
+服务器获取sessionid后,根据sessionid从表中查询出当前已经登录的用户userid
+然后,拿着userid去表中查询出所有的帐号信息,返回给app端
+接口名称
+
+http://sg31.com/ci/pwdmgmt/list √
+
+
+
+5.4 写APP列表界面,请求后台接口,并展示后台接口返回的数据
+
+
+5.5 写新增接口
+
+
+5.6 写APP新增界面
+app发送新增记录请求时,将sessionid一并传给服务器
+服务器获取sessionid后,根据sessionid从表中查询出当前已经登录的用户userid
+然后,将userid和app提交过来的数据,一并存入数据库
+
+
+5.6 写修改接口
+
+
+5.6 写APP修改界面(先根据id查询所有字段进行数据回显)
+
+
+
+===========
+phpmyadmin里MySQL字符集:cp1252 West European (latin1) ，解决乱码问题
+使用虚拟主机空间上的phpmyadmin操作数据库的时候，
+如果看到phpmyadmin首页上显示的MySQL 字符集为cp1252 West European (latin1)，当我们导入数据时就会出现乱码，
+解决的方法是：
+
+在phpmyadmin首页的右边有个Language选项，
+把默认的中文 - Chinese simplified-gb2312
+改成 中文 - Chinese simplified，
+则左边的MySQL 字符集会变成UTF-8 Unicode (utf8) ，乱码问题得到解决！
+
+补充一句: 在插入数据前,先将My SQL的连接校对 也改成 utf8_general_ci,再插入数据
+===========
+
+
+
+
+
+
 
 6. 主界面支持上拉加载更多,和下拉刷新
 接口4: 新增

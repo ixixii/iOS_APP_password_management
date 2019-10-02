@@ -65,7 +65,8 @@
             [[NSUserDefaults standardUserDefaults]setObject:sessionid forKey:@"userDefault_sessionid"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             // 弹出登录成功消息
-            [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"登录成功,%@",msgStr]];
+            // [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"登录成功,%@",msgStr]];
+            [SVProgressHUD showSuccessWithStatus:@"登录成功"];
             // 回调/通知 刷新主界面
             [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_loginSuccess" object:nil];
             // 关闭控制器

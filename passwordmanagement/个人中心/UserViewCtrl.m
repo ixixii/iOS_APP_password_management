@@ -52,7 +52,8 @@
             [[NSUserDefaults standardUserDefaults]setObject:@"" forKey:@"userDefault_sessionid"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             // 弹出退出成功消息
-            [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"退出成功,%@",descStr]];
+            // [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"退出成功,%@",descStr]];
+            [SVProgressHUD showSuccessWithStatus:@"退出成功"];
             // 回调/通知 刷新主界面
             [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_logoutSuccess" object:nil];
             // 关闭控制器
