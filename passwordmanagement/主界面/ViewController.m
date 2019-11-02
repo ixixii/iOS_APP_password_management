@@ -14,6 +14,7 @@
 #import "UserViewCtrl.h"
 #import "SVProgressHUD.h"
 
+#import "MJRefresh.h"
 
 #define kColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
@@ -28,9 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.tableView registerClass:[SGTableViewCell class] forCellReuseIdentifier:@"sgtableviewcellid"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self requestData];
+    }];
     self.tableView.estimatedRowHeight = 320; // 设置估算高度
     self.tableView.rowHeight = UITableViewAutomaticDimension; // 告诉tableView我们cell的高度是自动的
     
@@ -49,7 +51,8 @@
 {
     // 设置右上角的按钮
     [self addRightBtn];
-    [self.tableView reloadData];
+    // 如果登录状态,则进入页面时,请求接口
+    [self requestData];
 }
 // 处理通知
 - (void)logoutSuccessNoti:(NSNotification *)noti
@@ -215,6 +218,7 @@
         return;
     }
     if (data != nil) {
+        [self.tableView.mj_header endRefreshing];
         NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"返回的内容是：%@", string);
         // 将返回的data转成json

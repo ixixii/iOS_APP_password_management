@@ -17,7 +17,7 @@ target "passwordmanagement" do
 #    pod 'YTKNetwork'
 #    pod 'TCBlobDownload'
      pod 'MBProgressHUD', '~> 0.9.2'
-#    pod 'MJRefresh'
+     pod 'MJRefresh'
 #    pod 'YYText'
 #    pod 'UMengSocial', '~> 5.0'
 #    pod 'UMengSocialCOM', '~> 5.2.1'

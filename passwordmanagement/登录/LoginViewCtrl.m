@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)loginBtnClicked:(UIButton *)sender {
     // 1. 通过自定义的方法返回登录请求

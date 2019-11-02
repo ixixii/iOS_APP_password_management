@@ -391,8 +391,8 @@ app发送新增记录请求时,将sessionid一并传给服务器
 phpmyadmin里MySQL字符集:cp1252 West European (latin1) ，解决乱码问题
 使用虚拟主机空间上的phpmyadmin操作数据库的时候，
 如果看到phpmyadmin首页上显示的MySQL 字符集为cp1252 West European (latin1)，当我们导入数据时就会出现乱码，
-解决的方法是：
 
+解决的方法是：
 在phpmyadmin首页的右边有个Language选项，
 把默认的中文 - Chinese simplified-gb2312
 改成 中文 - Chinese simplified，
@@ -419,20 +419,28 @@ phpmyadmin里MySQL字符集:cp1252 West European (latin1) ，解决乱码问题
 插入一句: 如果取消apple id的订阅?
 答: 设置-iTunes Store与App Store-查看AppleID-订阅
 
+----------
+// 生成唯一的sessionid
+$sessionid = md5(uniqid(md5(microtime(true)),true));
+1d03c7a1189f4f428df0377ce505bbc0
+1867c94994da18e28fe0087cef9fd26e                
 
-
-6. 主界面支持上拉加载更多,和下拉刷新
-接口4: 新增
-接口5: 删除 
-接口6: 修改
+7. 主界面支持上拉加载更多,和下拉刷新  √
+未登录时, 下拉刷新时,sessionid传递为空,后台返回错误提示信息: 请登录
+app前端,弹出登录控制器 以及 错误信息
 
 todo list 8: 实现app前台界面
 1. 登录界面 √
-2. 列表
+2. 列表 √
+3. 搜索 
+3.1 类似微信的搜索控制器,UISearchController
+3.2 php接口
+3.3 app前端
+
 3. 添加
 4. 删除 
 5. 修改
-6. 搜索
+
 
 todo list 9: 上架appstore
 
@@ -440,3 +448,11 @@ todo list 10: 实现web前台界面
 
 todo list 11: 变现(插入alimama广告 or 转让app)
 
+
+
+提交代码
+git status 
+git add —all
+git commit -a -m "优化未登录时,下拉刷新后的交互效果,弹出错误提示和登录控制器"
+git pull origin master
+git push origin master
