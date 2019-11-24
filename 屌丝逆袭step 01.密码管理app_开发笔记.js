@@ -460,6 +460,7 @@ git push origin master
 提交代码 20191124
 git status 
 git add —all
-git commit -a -m "新增:搜索功能(虽然支持模糊查询,但是字段不完整,还需要进行一次优化)"
+git commit -a -m "新增:搜索功能(虽支持模糊查询,但是匹配字段不全,还需再优化)"
+git commit -a -m "新增:搜索功能(补充后台php文件)"
 git pull origin master
 git push origin master

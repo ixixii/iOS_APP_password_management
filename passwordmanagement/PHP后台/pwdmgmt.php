@@ -147,8 +147,6 @@ class Pwdmgmt extends CI_Controller {
                 $sql = "select * from pwdmgmt_account where userid = ? order by ID desc";
                 $accountArr = $this->db->query($sql,array($userid))->result_array();
             }else{
-                // $sql = "select * from pwdmgmt_account where userid = ? and ()  order by ID desc";
-                // $sql = "SELECT * FROM `pwdmgmt_account` WHERE userid = ? and (account like'%?%' or accounttype like '%?%' or username like '%?%' or telephone like '%?%' or email like '%?%' or remark  like '%?%' or website like '%?%' or cardno like '%?%' or cardaddress like '%?%' or loginby like '%?%')";
                 $sql = "SELECT * FROM `pwdmgmt_account` WHERE userid = ? and (account like ? or accounttype like ? or username like ? or telephone like ? or email like ? or remark  like ? or website like ? or cardno like ? or cardaddress like ? or loginby like ?)";
                 $querystr = '%'.$querystr.'%';
                 $accountArr = $this->db->query($sql,array($userid,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr))->result_array();
@@ -158,40 +156,6 @@ class Pwdmgmt extends CI_Controller {
                 $responseArr['isSuccess'] = 1;
                 $responseArr['desc'] = $accountArr;
                 echo json_encode($responseArr);
-                /*
-                {
-    "isSuccess": 1,
-    "accountArr": [{
-        "id": "1",
-        "userid": "1d03c7a1189f4f428df0377ce505bbc0",
-        "accounttype": "QQ",
-        "account": "308829827",
-        "loginpassword": "1*8\u00c8\u00a6\u00c8\u00a6",
-        "paypassword": "5*8",
-        "username": "beyond",
-        "telephone": "157*67",
-        "email": "308829827@qq.com",
-        "securityemail": "\u00c3\u00dc\u00b1\u00a3\u00d3\u00ca\u00cf\u00e4\u00cd\u00fc\u00c1\u00cb",
-        "securityquestion": "\u00c3\u00dc\u00b1\u00a3\u00ce\u00ca\u00cc\u00e2\u00cd\u00fc\u00c1\u00cb",
-        "loginby": "\u00ca\u00b9\u00d3\u00c3QQ\u00ba\u00c5\u00b5\u00c7\u00c2\u00bc,308829827",
-        "loginurl": "\u00b5\u00c7\u00c2\u00bc\u00b5\u00d8\u00d6\u00b7\u00ce\u00aa\u00b8\u00f7\u00c6\u00bd\u00cc\u00a8\u00b5\u00c4QQ\u00c8\u00ed\u00bc\u00fe",
-        "website": "\u00cd\u00f8\u00d6\u00b7\u00d3\u00c3QQ\u00b9\u00d9\u00cd\u00f8",
-        "shareurl": "QQ\u00b6\u00fe\u00ce\u00ac\u00c2\u00eb\u00c3\u00fb\u00c6\u00ac\u00c1\u00b4\u00bd\u00d3",
-        "ipaddress": "\u00b7\u00fe\u00ce\u00f1\u00c6\u00f7\u00d3\u00c3\u00b5\u00c4ip\u00b5\u00d8\u00d6\u00b7",
-        "cardno": "\u00d2\u00f8\u00d0\u00d0\u00bf\u00a8\u00d3\u00c3\u00b5\u00c4",
-        "cardaddress": "\u00d2\u00f8\u00d0\u00d0\u00bf\u00a8\u00bf\u00aa\u00bb\u00a7\u00d0\u00d0",
-        "billdate": "\u00d5\u00cb\u00b5\u00a5\u00c8\u00d5,\u00d0\u00c5\u00d3\u00c3\u00bf\u00a8\/\u00bb\u00a8\u00df\u00c2",
-        "paydate": "\u00b8\u00b6\u00bf\u00ee\u00c8\u00d5,\u00d0\u00c5\u00d3\u00c3\u00bf\u00a8\/\u00bb\u00a8\u00df\u00c2",
-        "createtime": "1569835767",
-        "updatetime": "1569835767",
-        "expiredate": "\u00d0\u00c5\u00d3\u00c3\u00bf\u00a8\/\u00d5\u00ca\u00ba\u00c5\/\u00c3\u00dc\u00c2\u00eb\/VIP\u00b5\u00c4\u00b9\u00fd\u00c6\u00da\u00c8\u00d5\u00c6\u00da",
-        "isvip": "\u00b2\u00bb\u00ca\u00c7VIP",
-        "isvpn": "\u00b2\u00bb\u00d0\u00e8\u00d2\u00aaVPN",
-        "usedpassword": null,
-        "remark": "\u00b1\u00b8\u00d7\u00a2"
-    }]
-}
-                */ 
             }else{
                 $responseArr = array();
                 $responseArr['isSuccess'] = 1;
