@@ -126,6 +126,14 @@ class Pwdmgmt extends CI_Controller {
 
         // app提交过来的post请求中有sessionid
         $sessionid = isset($_POST['sessionid'])? htmlspecialchars($_POST['sessionid']) : '';
+        // 如果sessionid为空,则报错
+        if($sessionid == ""){
+            $responseArr = array();
+            $responseArr['isSuccess'] = 0;
+            $responseArr['desc'] = '请登录';
+            echo json_encode($responseArr);
+            return;
+        }
         // 根据sessionid查出userid,再根据userid查询pwdmgmt_account表中,该userid的所有帐号(后期可分页)
         $sql = "select userid from pwdmgmt_session where sessionid = ?";
         $res = $this->db->query($sql,array($sessionid));
@@ -133,8 +141,18 @@ class Pwdmgmt extends CI_Controller {
         if(count($arr) > 0){
             // 查到了登录的用户
             $userid = $arr[0]['userid'];
-            $sql = "select * from pwdmgmt_account where userid = ? order by ID desc";
-            $accountArr = $this->db->query($sql,array($userid))->result_array();
+            // 如果有查询querystr,则进行模糊搜索
+            $querystr = isset($_POST['querystr'])? htmlspecialchars($_POST['querystr']) : '';
+            if($querystr == ""){
+                $sql = "select * from pwdmgmt_account where userid = ? order by ID desc";
+                $accountArr = $this->db->query($sql,array($userid))->result_array();
+            }else{
+                // $sql = "select * from pwdmgmt_account where userid = ? and ()  order by ID desc";
+                // $sql = "SELECT * FROM `pwdmgmt_account` WHERE userid = ? and (account like'%?%' or accounttype like '%?%' or username like '%?%' or telephone like '%?%' or email like '%?%' or remark  like '%?%' or website like '%?%' or cardno like '%?%' or cardaddress like '%?%' or loginby like '%?%')";
+                $sql = "SELECT * FROM `pwdmgmt_account` WHERE userid = ? and (account like ? or accounttype like ? or username like ? or telephone like ? or email like ? or remark  like ? or website like ? or cardno like ? or cardaddress like ? or loginby like ?)";
+                $querystr = '%'.$querystr.'%';
+                $accountArr = $this->db->query($sql,array($userid,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr))->result_array();
+            }
             if(count($accountArr) > 0){
                 $responseArr = array();
                 $responseArr['isSuccess'] = 1;
@@ -174,6 +192,11 @@ class Pwdmgmt extends CI_Controller {
     }]
 }
                 */ 
+            }else{
+                $responseArr = array();
+                $responseArr['isSuccess'] = 1;
+                $responseArr['desc'] = $accountArr;
+                echo json_encode($responseArr);
             }
         }else{
             $responseArr = array();
