@@ -462,5 +462,6 @@ git status
 git add —all
 git commit -a -m "新增:搜索功能(虽支持模糊查询,但是匹配字段不全,还需再优化)"
 git commit -a -m "新增:搜索功能(补充后台php文件)"
+git commit -a -m "删除不必要的注释"
 git pull origin master
 git push origin master

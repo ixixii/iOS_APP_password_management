@@ -147,9 +147,10 @@ class Pwdmgmt extends CI_Controller {
                 $sql = "select * from pwdmgmt_account where userid = ? order by ID desc";
                 $accountArr = $this->db->query($sql,array($userid))->result_array();
             }else{
-                $sql = "SELECT * FROM `pwdmgmt_account` WHERE userid = ? and (account like ? or accounttype like ? or username like ? or telephone like ? or email like ? or remark  like ? or website like ? or cardno like ? or cardaddress like ? or loginby like ?)";
+                // $sql = "SELECT * FROM `pwdmgmt_account` WHERE userid = ? and (account like ? or accounttype like ? or username like ? or telephone like ? or email like ? or remark  like ? or website like ? or cardno like ? or cardaddress like ? or loginby like ?)";
+                $sql = "SELECT * FROM `pwdmgmt_account` WHERE userid = ? and (account like ? or accounttype like ? or username like ? or telephone like ? or email like ? or securityemail like ? or securityquestion like ? or loginby like ? or loginurl like ? or website like ? or shareurl like ? or ipaddress like ? or cardno like ? or cardaddress like ? or billdate like ? or paydate like ? or expiredate like ? or remark like ? )";
                 $querystr = '%'.$querystr.'%';
-                $accountArr = $this->db->query($sql,array($userid,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr))->result_array();
+                $accountArr = $this->db->query($sql,array($userid,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr,$querystr))->result_array();
             }
             if(count($accountArr) > 0){
                 $responseArr = array();
