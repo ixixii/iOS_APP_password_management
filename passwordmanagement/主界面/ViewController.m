@@ -18,39 +18,58 @@
 
 #define kColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchControllerDelegate,UIAlertViewDelegate>
 {
     NSArray *_dictArr;
     NSMutableArray *_accountArr;
 }
+@property (strong,nonatomic)UISearchController *searchCtrl;
 @end
 
 @implementation ViewController
+#pragma mark - 懒加载
+- (UISearchController *)searchCtrl
+{
+    if(!_searchCtrl){
+        _searchCtrl = [[UISearchController alloc]init];
+    }
+    return _searchCtrl;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initTableView];
+
+    // 右上角的按钮
+    [self addRightBtn];
+    
+    // 注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessNoti:) name:@"notification_loginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutSuccessNoti:) name:@"notification_logoutSuccess" object:nil];
+    
+    // 如果登录状态,则进入页面时,请求接口
+    [self requestData];
+    
+    // 右上角搜索按钮
+    [self addLeftBtn];
+}
+#pragma mark - 初始化
+- (void)initTableView
+{
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self requestData];
     }];
     self.tableView.estimatedRowHeight = 320; // 设置估算高度
     self.tableView.rowHeight = UITableViewAutomaticDimension; // 告诉tableView我们cell的高度是自动的
-    
-    // 右上角的按钮
-    [self addRightBtn];
-    // 注册通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessNoti:) name:@"notification_loginSuccess" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutSuccessNoti:) name:@"notification_logoutSuccess" object:nil];
-    
-    // 如果登录状态,则进入页面时,请求接口
-    [self requestData];
 }
 // 处理通知
 - (void)loginSuccessNoti:(NSNotification *)noti
 {
     // 设置右上角的按钮
     [self addRightBtn];
+    [self addLeftBtn];
     // 如果登录状态,则进入页面时,请求接口
     [self requestData];
 }
@@ -59,28 +78,40 @@
 {
     // 设置右上角的按钮
     [self addRightBtn];
+    [self addLeftBtn];
     [self.tableView reloadData];
 }
 
+- (void)addLeftBtn
+{
+    // 如果是未登录,显示 登录按钮
+    if([self isLogin]){
+        // 如果是登录状态,显示 搜索帐号的按钮
+        [self addSearchBtn];
+    }else if(![self isLogin]){
+        // 不显示按钮
+        UIView *tmpView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:tmpView];
+        self.navigationItem.leftBarButtonItem = leftItem;
+    }
+}
 
 - (void)addRightBtn
 {
-    // 查看是否已登录
-    
-    // 如果是未登录,显示 登录按钮
-    if(![self isLogin]){
-        [self addLoginBtn];
-    }else if([self isLogin]){
+    if([self isLogin]){
         // 如果是登录状态,显示 添加帐号的按钮
         [self showAddBtn];
+    }else{
+        [self addLoginBtn];
     }
 }
+
 - (BOOL)isLogin
 {
     NSString *sessionid = [[NSUserDefaults standardUserDefaults]objectForKey:@"userDefault_sessionid"];
     return sessionid.length > 0;
-//    return !(!sessionid || [sessionid isEqualToString:@""]);
 }
+
 #pragma mark - 添加登录按钮
 - (void)addLoginBtn
 {
@@ -93,6 +124,79 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:loginBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
 }
+#pragma mark 搜索按钮
+- (void)addSearchBtn
+{
+    CGRect btnFrame = CGRectMake(0, 0, 32, 32);
+    UIButton *searchBtn = [[UIButton alloc]initWithFrame:btnFrame];
+//    [searchBtn setTitle:@"搜索" forState:UIControlStateNormal];
+    [searchBtn setBackgroundImage:[UIImage imageNamed:@"search_btn.png"] forState:UIControlStateNormal];
+    [searchBtn setTitleColor:kColor(14,89,254) forState:UIControlStateNormal];
+    [searchBtn setTitleColor:kColor(255,0,0) forState:UIControlStateHighlighted];
+    [searchBtn addTarget:self action:@selector(searchBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:searchBtn];
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+- (void)searchBtnClicked:(UIButton *)btn
+{
+    // 弹出搜索输入框
+    NSLog(@"sg__弹出搜索输入框");
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"请输入要查询的关键字"
+                                                    message:@"如:QQ,微信,支付宝"
+                                                   delegate:self
+                                          cancelButtonTitle:@"取消"
+                                          otherButtonTitles:@"确定", nil];
+    alert.tag = 5267;
+    // 基本输入框，显示实际输入的内容
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    // 用户名，密码登录框
+    //    alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    // 密码形式的输入框，输入字符会显示为圆点
+    //    alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+    
+    //设置输入框的键盘类型
+    UITextField *tf = [alert textFieldAtIndex:0];
+    tf.keyboardType = UIKeyboardTypeDefault;
+    [alert show];
+}
+#pragma mark  alertView代理
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+        {
+            NSLog(@"0--取消");
+        }
+            break;
+        case 1:
+        {
+            NSLog(@"1--确定");
+            UITextField *tf = [alertView textFieldAtIndex:0];
+            if (alertView.tag == 5267) {
+                // 真实姓名
+                if(tf.text.length > 0){
+                    NSLog(@"%@",tf.text);
+                    self.queryStr = tf.text;
+                    [self requestData];
+                    self.title = [NSString stringWithFormat:@"【%@】",self.queryStr];
+                    // 无查询结果时
+                    if (!_dictArr || _dictArr.count == 0) {
+                        self.title = [NSString stringWithFormat:@"【%@】无结果",self.queryStr];
+                    }
+                }else{
+                    self.queryStr = @"";
+                    [self requestData];
+                    self.title = @"帐号";
+                }
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+#pragma mark - xxx
 - (void)jumpToLoginCtrl
 {
     // 弹出登录控制器
@@ -142,26 +246,9 @@
         if (cell == nil) {
             cell = [SGTableViewCell tableViewCell];
         }
-        
-        // 拼接string
         cell.textLabel.numberOfLines = 0;
-        // cell.textLabel.text = [_dictArr[0] description];
         AccountModel *model = [_accountArr objectAtIndex:indexPath.row - 1];
         cell = [cell inflateCellWithModel:model];
-        // 将模型赋予自定义cell,进行填充,并返回cell
-//        if(indexPath.row == 1){
-//            cell.textLabel.text = @"用户名beyond,密码123456";
-//        }else if(indexPath.row == 2){
-//            cell.textLabel.text = @"代码和开发笔记的地址在:";
-//        }else if(indexPath.row == 3){
-//            cell.textLabel.text = @"github.com/ixixii/";
-//        }else if(indexPath.row == 4){
-//            cell.textLabel.text = @"项目名称:";
-//        }else if(indexPath.row == 5){
-//            cell.textLabel.text = @"iOS_APP_password_management";
-//        }else{
-//            cell.textLabel.text = @"主界面和testflight一样";
-//        }
         return cell;
     }
 }
@@ -176,7 +263,6 @@
 }
 - (void)jumpToUserCtrl
 {
-//    [SVProgressHUD showSuccessWithStatus:@"准备弹出个人中心控制器"];
     UserViewCtrl *userViewCtrl = [[UserViewCtrl alloc]init];
     [self.navigationController presentViewController:userViewCtrl animated:YES completion:nil];
 }
@@ -244,7 +330,7 @@
         }else if(isSuccess == 1){
             // 登录成功
             _dictArr = [responseDict objectForKey:@"desc"];
-             _accountArr = [NSMutableArray arrayWithArray:[AccountModel objectArrayWithKeyValuesArray:_dictArr]];
+            _accountArr = [NSMutableArray arrayWithArray:[AccountModel objectArrayWithKeyValuesArray:_dictArr]];
             [self.tableView reloadData];
         }
     } else {
@@ -255,7 +341,11 @@
 
 - (NSURLRequest *)postListRequest
 {
-    NSURL *url = [NSURL URLWithString:@"http://sg31.com/ci/pwdmgmt/accountlist"];
+    NSString *urlStr = @"http://sg31.com/ci/pwdmgmt/accountlist";
+//    if(self.queryStr.length > 0){
+//        urlStr = [NSString stringWithFormat:@"http://sg31.com/ci/pwdmgmt/accountlist?querystr=%@",self.queryStr];
+//    }
+    NSURL *url = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setTimeoutInterval:30.0];
     [request setHTTPMethod:@"post"];
@@ -263,6 +353,9 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString *sessionid = [userDefault objectForKey:@"userDefault_sessionid"];
     NSString *bodyString = [NSString stringWithFormat:@"sessionid=%@", sessionid];
+    if(self.queryStr.length > 0){
+        bodyString = [NSString stringWithFormat:@"sessionid=%@&querystr=%@", sessionid, self.queryStr];
+    }
     NSLog(@"数据体字符串：%@", bodyString);
     NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:body];

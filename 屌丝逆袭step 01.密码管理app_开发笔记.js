@@ -432,15 +432,15 @@ app前端,弹出登录控制器 以及 错误信息
 todo list 8: 实现app前台界面
 1. 登录界面 √
 2. 列表 √
-3. 搜索 
-3.1 类似微信的搜索控制器,UISearchController
-3.2 php接口
-3.3 app前端
+3. 搜索 √
+3.1 类似微信的搜索控制器,UISearchController (暂时未使用 优雅搜索控制器, 原因是还不会)
+3.2 php接口 √ (post参数中,增加了一个querystr)
+3.3 app前端 √ (输入关键字时,重新查询)
 
-3. 添加
-4. 删除 
-5. 修改
+4. 删除 (功能非必须, 可以暂时不做)
 
+5. 添加 
+6. 修改
 
 todo list 9: 上架appstore
 
@@ -454,5 +454,12 @@ todo list 11: 变现(插入alimama广告 or 转让app)
 git status 
 git add —all
 git commit -a -m "优化未登录时,下拉刷新后的交互效果,弹出错误提示和登录控制器"
+git pull origin master
+git push origin master
+
+提交代码 20191124
+git status 
+git add —all
+git commit -a -m "新增:搜索功能(虽然支持模糊查询,但是字段不完整,还需要进行一次优化)"
 git pull origin master
 git push origin master

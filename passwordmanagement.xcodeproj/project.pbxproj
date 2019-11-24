@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3060EA2723430C0600E847D6 /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3060EA2523430C0600E847D6 /* AccountModel.m */; };
+		3076C137238A66B400774B4F /* search_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3076C136238A66B400774B4F /* search_btn@2x.png */; };
 		30C007932324D4AB000B2538 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C0076C2324D4AA000B2538 /* SVRadialGradientLayer.m */; };
 		30C007942324D4AB000B2538 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C0076F2324D4AA000B2538 /* MBProgressHUD+NJ.m */; };
 		30C007952324D4AB000B2538 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C007732324D4AA000B2538 /* SVProgressHUD.m */; };
@@ -49,6 +50,7 @@
 		205591C7DFCB69F52FDFB7E1 /* libPods-passwordmanagement.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-passwordmanagement.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3060EA2523430C0600E847D6 /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountModel.m; sourceTree = "<group>"; };
 		3060EA2623430C0600E847D6 /* AccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
+		3076C136238A66B400774B4F /* search_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_btn@2x.png"; sourceTree = "<group>"; };
 		30C0076C2324D4AA000B2538 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		30C0076D2324D4AA000B2538 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		30C0076E2324D4AA000B2538 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		30C007A52324DA0E000B2538 /* 图片 */ = {
 			isa = PBXGroup;
 			children = (
+				3076C136238A66B400774B4F /* search_btn@2x.png */,
 				30C007C323255160000B2538 /* appicon@3x.png */,
 				30C007B623253A3A000B2538 /* header_btn@3x.png */,
 				30C007A62324DA1A000B2538 /* add_btn@3x.png */,
@@ -362,6 +365,7 @@
 				30C007B5232533CB000B2538 /* HeaderCell.xib in Resources */,
 				30C007A72324DA1A000B2538 /* add_btn@3x.png in Resources */,
 				30C007AD23253368000B2538 /* SGTableViewCell.xib in Resources */,
+				3076C137238A66B400774B4F /* search_btn@2x.png in Resources */,
 				30F2C9A42321522B0065C6C6 /* LaunchScreen.storyboard in Resources */,
 				30C007C423255161000B2538 /* appicon@3x.png in Resources */,
 				30C007972324D4AB000B2538 /* SVProgressHUD.bundle in Resources */,
