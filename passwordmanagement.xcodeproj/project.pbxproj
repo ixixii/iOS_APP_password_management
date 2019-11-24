@@ -9,6 +9,24 @@
 /* Begin PBXBuildFile section */
 		3060EA2723430C0600E847D6 /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3060EA2523430C0600E847D6 /* AccountModel.m */; };
 		3076C137238A66B400774B4F /* search_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3076C136238A66B400774B4F /* search_btn@2x.png */; };
+		3076C13C238AC38400774B4F /* InsertViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C13A238AC38400774B4F /* InsertViewCtrl.m */; };
+		3076C13D238AC38400774B4F /* InsertViewCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3076C13B238AC38400774B4F /* InsertViewCtrl.xib */; };
+		3076C163238AEE4900774B4F /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C140238AEE4900774B4F /* IQTextView.m */; };
+		3076C164238AEE4900774B4F /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C144238AEE4900774B4F /* IQToolbar.m */; };
+		3076C165238AEE4900774B4F /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C146238AEE4900774B4F /* IQTitleBarButtonItem.m */; };
+		3076C166238AEE4900774B4F /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C147238AEE4900774B4F /* IQBarButtonItem.m */; };
+		3076C167238AEE4900774B4F /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C148238AEE4900774B4F /* IQUIView+IQKeyboardToolbar.m */; };
+		3076C168238AEE4900774B4F /* IQPreviousNextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C149238AEE4900774B4F /* IQPreviousNextView.m */; };
+		3076C169238AEE4900774B4F /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3076C151238AEE4900774B4F /* IQKeyboardManager.bundle */; };
+		3076C16A238AEE4900774B4F /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C154238AEE4900774B4F /* IQKeyboardManager.m */; };
+		3076C16B238AEE4900774B4F /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C156238AEE4900774B4F /* IQNSArray+Sort.m */; };
+		3076C16C238AEE4900774B4F /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C157238AEE4900774B4F /* IQUIWindow+Hierarchy.m */; };
+		3076C16D238AEE4900774B4F /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C159238AEE4900774B4F /* IQUITextFieldView+Additions.m */; };
+		3076C16E238AEE4900774B4F /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C15A238AEE4900774B4F /* IQUIScrollView+Additions.m */; };
+		3076C16F238AEE4900774B4F /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C15B238AEE4900774B4F /* IQUIView+Hierarchy.m */; };
+		3076C170238AEE4A00774B4F /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C160238AEE4900774B4F /* IQUIViewController+Additions.m */; };
+		3076C171238AEE4A00774B4F /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3076C162238AEE4900774B4F /* IQKeyboardReturnKeyHandler.m */; };
+		3076C173238AF1FB00774B4F /* done_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3076C172238AF1FB00774B4F /* done_btn@3x.png */; };
 		30C007932324D4AB000B2538 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C0076C2324D4AA000B2538 /* SVRadialGradientLayer.m */; };
 		30C007942324D4AB000B2538 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C0076F2324D4AA000B2538 /* MBProgressHUD+NJ.m */; };
 		30C007952324D4AB000B2538 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C007732324D4AA000B2538 /* SVProgressHUD.m */; };
@@ -51,6 +69,41 @@
 		3060EA2523430C0600E847D6 /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountModel.m; sourceTree = "<group>"; };
 		3060EA2623430C0600E847D6 /* AccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
 		3076C136238A66B400774B4F /* search_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_btn@2x.png"; sourceTree = "<group>"; };
+		3076C139238AC38400774B4F /* InsertViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InsertViewCtrl.h; sourceTree = "<group>"; };
+		3076C13A238AC38400774B4F /* InsertViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsertViewCtrl.m; sourceTree = "<group>"; };
+		3076C13B238AC38400774B4F /* InsertViewCtrl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InsertViewCtrl.xib; sourceTree = "<group>"; };
+		3076C140238AEE4900774B4F /* IQTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTextView.m; sourceTree = "<group>"; };
+		3076C141238AEE4900774B4F /* IQTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTextView.h; sourceTree = "<group>"; };
+		3076C143238AEE4900774B4F /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
+		3076C144238AEE4900774B4F /* IQToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQToolbar.m; sourceTree = "<group>"; };
+		3076C145238AEE4900774B4F /* IQPreviousNextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQPreviousNextView.h; sourceTree = "<group>"; };
+		3076C146238AEE4900774B4F /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTitleBarButtonItem.m; sourceTree = "<group>"; };
+		3076C147238AEE4900774B4F /* IQBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQBarButtonItem.m; sourceTree = "<group>"; };
+		3076C148238AEE4900774B4F /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
+		3076C149238AEE4900774B4F /* IQPreviousNextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQPreviousNextView.m; sourceTree = "<group>"; };
+		3076C14A238AEE4900774B4F /* IQToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQToolbar.h; sourceTree = "<group>"; };
+		3076C14B238AEE4900774B4F /* IQBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQBarButtonItem.h; sourceTree = "<group>"; };
+		3076C14C238AEE4900774B4F /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTitleBarButtonItem.h; sourceTree = "<group>"; };
+		3076C14E238AEE4900774B4F /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
+		3076C14F238AEE4900774B4F /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
+		3076C151238AEE4900774B4F /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		3076C152238AEE4900774B4F /* IQKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
+		3076C153238AEE4900774B4F /* IQKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManager.h; sourceTree = "<group>"; };
+		3076C154238AEE4900774B4F /* IQKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardManager.m; sourceTree = "<group>"; };
+		3076C156238AEE4900774B4F /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
+		3076C157238AEE4900774B4F /* IQUIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIWindow+Hierarchy.m"; sourceTree = "<group>"; };
+		3076C158238AEE4900774B4F /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIViewController+Additions.h"; sourceTree = "<group>"; };
+		3076C159238AEE4900774B4F /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
+		3076C15A238AEE4900774B4F /* IQUIScrollView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIScrollView+Additions.m"; sourceTree = "<group>"; };
+		3076C15B238AEE4900774B4F /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
+		3076C15C238AEE4900774B4F /* IQUIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIWindow+Hierarchy.h"; sourceTree = "<group>"; };
+		3076C15D238AEE4900774B4F /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
+		3076C15E238AEE4900774B4F /* IQUIScrollView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIScrollView+Additions.h"; sourceTree = "<group>"; };
+		3076C15F238AEE4900774B4F /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
+		3076C160238AEE4900774B4F /* IQUIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIViewController+Additions.m"; sourceTree = "<group>"; };
+		3076C161238AEE4900774B4F /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
+		3076C162238AEE4900774B4F /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
+		3076C172238AF1FB00774B4F /* done_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "done_btn@3x.png"; sourceTree = "<group>"; };
 		30C0076C2324D4AA000B2538 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		30C0076D2324D4AA000B2538 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		30C0076E2324D4AA000B2538 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -143,6 +196,94 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		3076C138238AC32F00774B4F /* 创建与修改 */ = {
+			isa = PBXGroup;
+			children = (
+				3076C139238AC38400774B4F /* InsertViewCtrl.h */,
+				3076C13A238AC38400774B4F /* InsertViewCtrl.m */,
+				3076C13B238AC38400774B4F /* InsertViewCtrl.xib */,
+			);
+			path = "创建与修改";
+			sourceTree = "<group>";
+		};
+		3076C13E238AEE4900774B4F /* IQKeyboardManager */ = {
+			isa = PBXGroup;
+			children = (
+				3076C13F238AEE4900774B4F /* IQTextView */,
+				3076C142238AEE4900774B4F /* IQToolbar */,
+				3076C14D238AEE4900774B4F /* Constants */,
+				3076C150238AEE4900774B4F /* Resources */,
+				3076C152238AEE4900774B4F /* IQKeyboardReturnKeyHandler.h */,
+				3076C153238AEE4900774B4F /* IQKeyboardManager.h */,
+				3076C154238AEE4900774B4F /* IQKeyboardManager.m */,
+				3076C155238AEE4900774B4F /* Categories */,
+				3076C162238AEE4900774B4F /* IQKeyboardReturnKeyHandler.m */,
+			);
+			path = IQKeyboardManager;
+			sourceTree = "<group>";
+		};
+		3076C13F238AEE4900774B4F /* IQTextView */ = {
+			isa = PBXGroup;
+			children = (
+				3076C140238AEE4900774B4F /* IQTextView.m */,
+				3076C141238AEE4900774B4F /* IQTextView.h */,
+			);
+			path = IQTextView;
+			sourceTree = "<group>";
+		};
+		3076C142238AEE4900774B4F /* IQToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				3076C143238AEE4900774B4F /* IQUIView+IQKeyboardToolbar.h */,
+				3076C144238AEE4900774B4F /* IQToolbar.m */,
+				3076C145238AEE4900774B4F /* IQPreviousNextView.h */,
+				3076C146238AEE4900774B4F /* IQTitleBarButtonItem.m */,
+				3076C147238AEE4900774B4F /* IQBarButtonItem.m */,
+				3076C148238AEE4900774B4F /* IQUIView+IQKeyboardToolbar.m */,
+				3076C149238AEE4900774B4F /* IQPreviousNextView.m */,
+				3076C14A238AEE4900774B4F /* IQToolbar.h */,
+				3076C14B238AEE4900774B4F /* IQBarButtonItem.h */,
+				3076C14C238AEE4900774B4F /* IQTitleBarButtonItem.h */,
+			);
+			path = IQToolbar;
+			sourceTree = "<group>";
+		};
+		3076C14D238AEE4900774B4F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3076C14E238AEE4900774B4F /* IQKeyboardManagerConstantsInternal.h */,
+				3076C14F238AEE4900774B4F /* IQKeyboardManagerConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		3076C150238AEE4900774B4F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3076C151238AEE4900774B4F /* IQKeyboardManager.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3076C155238AEE4900774B4F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3076C156238AEE4900774B4F /* IQNSArray+Sort.m */,
+				3076C157238AEE4900774B4F /* IQUIWindow+Hierarchy.m */,
+				3076C158238AEE4900774B4F /* IQUIViewController+Additions.h */,
+				3076C159238AEE4900774B4F /* IQUITextFieldView+Additions.m */,
+				3076C15A238AEE4900774B4F /* IQUIScrollView+Additions.m */,
+				3076C15B238AEE4900774B4F /* IQUIView+Hierarchy.m */,
+				3076C15C238AEE4900774B4F /* IQUIWindow+Hierarchy.h */,
+				3076C15D238AEE4900774B4F /* IQNSArray+Sort.h */,
+				3076C15E238AEE4900774B4F /* IQUIScrollView+Additions.h */,
+				3076C15F238AEE4900774B4F /* IQUITextFieldView+Additions.h */,
+				3076C160238AEE4900774B4F /* IQUIViewController+Additions.m */,
+				3076C161238AEE4900774B4F /* IQUIView+Hierarchy.h */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		30C0076B2324D4AA000B2538 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +334,7 @@
 		30C007A52324DA0E000B2538 /* 图片 */ = {
 			isa = PBXGroup;
 			children = (
+				3076C172238AF1FB00774B4F /* done_btn@3x.png */,
 				3076C136238A66B400774B4F /* search_btn@2x.png */,
 				30C007C323255160000B2538 /* appicon@3x.png */,
 				30C007B623253A3A000B2538 /* header_btn@3x.png */,
@@ -241,6 +383,7 @@
 		30EF60C92324BFBA00DBBF2D /* 公共 */ = {
 			isa = PBXGroup;
 			children = (
+				3076C13E238AEE4900774B4F /* IQKeyboardManager */,
 				30C0077B2324D4AA000B2538 /* MJExtension */,
 				30C0076B2324D4AA000B2538 /* SVProgressHUD */,
 				30EF60CA2324BFBA00DBBF2D /* UIView+Frame.m */,
@@ -270,6 +413,7 @@
 		30F2C996232152290065C6C6 /* passwordmanagement */ = {
 			isa = PBXGroup;
 			children = (
+				3076C138238AC32F00774B4F /* 创建与修改 */,
 				30C007B823254015000B2538 /* 个人中心 */,
 				30C007A823253368000B2538 /* 主界面 */,
 				30C007A52324DA0E000B2538 /* 图片 */,
@@ -366,6 +510,7 @@
 				30C007A72324DA1A000B2538 /* add_btn@3x.png in Resources */,
 				30C007AD23253368000B2538 /* SGTableViewCell.xib in Resources */,
 				3076C137238A66B400774B4F /* search_btn@2x.png in Resources */,
+				3076C169238AEE4900774B4F /* IQKeyboardManager.bundle in Resources */,
 				30F2C9A42321522B0065C6C6 /* LaunchScreen.storyboard in Resources */,
 				30C007C423255161000B2538 /* appicon@3x.png in Resources */,
 				30C007972324D4AB000B2538 /* SVProgressHUD.bundle in Resources */,
@@ -373,7 +518,9 @@
 				30EF60D12324C08C00DBBF2D /* LoginViewCtrl.xib in Resources */,
 				30C007B723253A3A000B2538 /* header_btn@3x.png in Resources */,
 				30C007C22325408A000B2538 /* UserViewCtrl.xib in Resources */,
+				3076C13D238AC38400774B4F /* InsertViewCtrl.xib in Resources */,
 				30F2C99F232152290065C6C6 /* Main.storyboard in Resources */,
+				3076C173238AF1FB00774B4F /* done_btn@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,20 +574,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				30C007C12325408A000B2538 /* UserViewCtrl.m in Sources */,
+				3076C16E238AEE4900774B4F /* IQUIScrollView+Additions.m in Sources */,
+				3076C167238AEE4900774B4F /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				3076C165238AEE4900774B4F /* IQTitleBarButtonItem.m in Sources */,
 				30C007B023253398000B2538 /* ViewController.m in Sources */,
+				3076C16D238AEE4900774B4F /* IQUITextFieldView+Additions.m in Sources */,
 				30C0079C2324D4AB000B2538 /* MJIvar.m in Sources */,
+				3076C171238AEE4A00774B4F /* IQKeyboardReturnKeyHandler.m in Sources */,
 				30C007A32324D4AB000B2538 /* MJFoundation.m in Sources */,
 				30C007AC23253368000B2538 /* SGTableViewCell.m in Sources */,
+				3076C16C238AEE4900774B4F /* IQUIWindow+Hierarchy.m in Sources */,
+				3076C170238AEE4A00774B4F /* IQUIViewController+Additions.m in Sources */,
+				3076C164238AEE4900774B4F /* IQToolbar.m in Sources */,
 				30C0079F2324D4AB000B2538 /* MJTypeEncoding.m in Sources */,
 				30C0079A2324D4AB000B2538 /* MJMember.m in Sources */,
 				30C007932324D4AB000B2538 /* SVRadialGradientLayer.m in Sources */,
 				30C007A22324D4AB000B2538 /* MJArgument.m in Sources */,
+				3076C166238AEE4900774B4F /* IQBarButtonItem.m in Sources */,
 				30EF60CC2324BFBB00DBBF2D /* UIView+Frame.m in Sources */,
 				30EF60D02324C08C00DBBF2D /* LoginViewCtrl.m in Sources */,
 				30C007A42324D4AB000B2538 /* NSObject+MJMember.m in Sources */,
+				3076C16F238AEE4900774B4F /* IQUIView+Hierarchy.m in Sources */,
+				3076C168238AEE4900774B4F /* IQPreviousNextView.m in Sources */,
 				30C007962324D4AB000B2538 /* SVIndefiniteAnimatedView.m in Sources */,
+				3076C163238AEE4900774B4F /* IQTextView.m in Sources */,
 				30C007952324D4AB000B2538 /* SVProgressHUD.m in Sources */,
+				3076C16A238AEE4900774B4F /* IQKeyboardManager.m in Sources */,
+				3076C16B238AEE4900774B4F /* IQNSArray+Sort.m in Sources */,
 				30C0079B2324D4AB000B2538 /* NSObject+MJKeyValue.m in Sources */,
+				3076C13C238AC38400774B4F /* InsertViewCtrl.m in Sources */,
 				30C007A12324D4AB000B2538 /* MJMethod.m in Sources */,
 				3060EA2723430C0600E847D6 /* AccountModel.m in Sources */,
 				30C0079D2324D4AB000B2538 /* MJType.m in Sources */,

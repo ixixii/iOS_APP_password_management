@@ -463,5 +463,46 @@ git add —all
 git commit -a -m "新增:搜索功能(虽支持模糊查询,但是匹配字段不全,还需再优化)"
 git commit -a -m "新增:搜索功能(补充后台php文件)"
 git commit -a -m "删除不必要的注释"
+git commit -a -m "搜索功能 全字段 模糊匹配"
+git pull origin master
+git push origin master
+
+accounttype	varchar(255)			
+account	varchar(255)			
+loginpassword	varchar(255)			
+paypassword	varchar(255)			
+username	varchar(255)			
+telephone	varchar(255)			
+email	varchar(255)			
+securityemail	varchar(255)			
+securityquestion	varchar(255)			
+loginby	varchar(255)			
+loginurl	varchar(255)			
+website	varchar(255)			
+shareurl	varchar(255)			
+ 
+ipaddress	varchar(255)			
+cardno	varchar(255)			
+cardaddress	varchar(255)			
+billdate	varchar(20)			
+paydate	varchar(20)		
+
+createtime	varchar(255)			
+updatetime	varchar(255)			
+
+expiredate	varchar(255)			
+isvip	varchar(255)			
+isvpn	varchar(255)			
+usedpassword	varchar(255)			
+remark	varchar(512)
+--------------------
+userid     varchar255 无输入,自动生成
+createtime varchar255 无输入,自动生成
+updatetime varchar255 无输入,自动生成
+
+提交代码
+git status 
+git add —all
+git commit -a -m "app端,完成新增帐号界面的UI搭建"
 git pull origin master
 git push origin master

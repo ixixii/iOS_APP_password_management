@@ -16,6 +16,8 @@
 
 #import "MJRefresh.h"
 
+#import "InsertViewCtrl.h"
+
 #define kColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchControllerDelegate,UIAlertViewDelegate>
@@ -217,7 +219,9 @@
     self.navigationItem.rightBarButtonItem = rightItem;
 }
 - (void)addBtnClicked:(UIButton *)btn{
-    [SVProgressHUD showSuccessWithStatus:@"将弹出新增帐号控制器"];
+    // [SVProgressHUD showSuccessWithStatus:@"将弹出新增帐号控制器"];
+    InsertViewCtrl *insertViewCtrl = [[InsertViewCtrl alloc]init];
+    [self.navigationController presentViewController:insertViewCtrl animated:YES completion:nil];
 }
 #pragma mark - tableView datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
