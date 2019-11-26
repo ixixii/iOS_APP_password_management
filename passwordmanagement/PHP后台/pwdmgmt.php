@@ -112,7 +112,7 @@ class Pwdmgmt extends CI_Controller {
     }
 
     // 查询列表接口
-    // http://sg31.com/ci/pwdmgmt/list
+    // http://sg31.com/ci/pwdmgmt/accountlist
     public function accountlist(){
         // 如果是get请求,则直接Return
         $isGet = $_SERVER['REQUEST_METHOD'] == 'GET';
@@ -163,6 +163,83 @@ class Pwdmgmt extends CI_Controller {
                 $responseArr['desc'] = $accountArr;
                 echo json_encode($responseArr);
             }
+        }else{
+            $responseArr = array();
+            $responseArr['isSuccess'] = 0;
+            $responseArr['desc'] = '未查到使用该session的登录用户';
+            echo json_encode($responseArr);
+        }
+    }
+
+    // 新增帐号
+    public function accountinsert(){
+        // 如果是get请求,则直接Return
+        $isGet = $_SERVER['REQUEST_METHOD'] == 'GET';
+        if($isGet){
+            $responseArr = array();
+            $responseArr['isSuccess'] = 0;
+            $responseArr['desc'] = '不支持Get请求';
+            echo json_encode($responseArr);
+            return;
+        }
+        // app提交过来的post请求中有sessionid
+        $sessionid = isset($_POST['sessionid'])? htmlspecialchars($_POST['sessionid']) : '';
+        // 如果sessionid为空,则报错
+        if($sessionid == ""){
+            $responseArr = array();
+            $responseArr['isSuccess'] = 0;
+            $responseArr['desc'] = '请登录';
+            echo json_encode($responseArr);
+            return;
+        }
+        // 根据sessionid查出userid,再根据userid查询pwdmgmt_account表中,该userid的所有帐号(后期可分页)
+        $sql = "select userid from pwdmgmt_session where sessionid = ?";
+        $res = $this->db->query($sql,array($sessionid));
+        $arr = $res->result_array();
+        if(count($arr) > 0){
+            // 查到了登录的用户
+            $userid = $arr[0]['userid'];
+            $accounttype = isset($_POST['accounttype'])? htmlspecialchars($_POST['accounttype']) : '';
+
+            $account = isset($_POST['account'])? htmlspecialchars($_POST['account']) : '';
+            $loginpassword = isset($_POST['loginpassword'])? htmlspecialchars($_POST['loginpassword']) : '';
+            $paypassword = isset($_POST['paypassword'])? htmlspecialchars($_POST['paypassword']) : '';
+
+            $username = isset($_POST['username'])? htmlspecialchars($_POST['username']) : '';
+            $telephone = isset($_POST['telephone'])? htmlspecialchars($_POST['telephone']) : '';
+            $email = isset($_POST['email'])? htmlspecialchars($_POST['email']) : '';
+            $securityemail = isset($_POST['securityemail'])? htmlspecialchars($_POST['securityemail']) : '';
+            $securityquestion = isset($_POST['securityquestion'])? htmlspecialchars($_POST['securityquestion']) : '';
+
+            $loginby = isset($_POST['loginby'])? htmlspecialchars($_POST['loginby']) : '';
+            $loginurl = isset($_POST['loginurl'])? htmlspecialchars($_POST['loginurl']) : '';
+            $website = isset($_POST['website'])? htmlspecialchars($_POST['website']) : '';
+            $shareurl = isset($_POST['shareurl'])? htmlspecialchars($_POST['shareurl']) : '';
+            $ipaddress = isset($_POST['ipaddress'])? htmlspecialchars($_POST['ipaddress']) : '';
+
+            $cardno = isset($_POST['cardno'])? htmlspecialchars($_POST['cardno']) : '';
+            $cardaddress = isset($_POST['cardaddress'])? htmlspecialchars($_POST['cardaddress']) : '';
+            $billdate = isset($_POST['billdate'])? htmlspecialchars($_POST['billdate']) : '';
+            $paydate = isset($_POST['paydate'])? htmlspecialchars($_POST['paydate']) : '';
+            $createtime = isset($_POST['createtime'])? htmlspecialchars($_POST['createtime']) : '';
+
+            $updatetime = isset($_POST['updatetime'])? htmlspecialchars($_POST['updatetime']) : '';
+            $expiredate = isset($_POST['expiredate'])? htmlspecialchars($_POST['expiredate']) : '';
+            $isvip = isset($_POST['isvip'])? htmlspecialchars($_POST['isvip']) : '';
+            $isvpn = isset($_POST['isvpn'])? htmlspecialchars($_POST['isvpn']) : '';
+            $usedpassword = isset($_POST['usedpassword'])? htmlspecialchars($_POST['usedpassword']) : '';
+            $remark = isset($_POST['remark'])? htmlspecialchars($_POST['remark']) : '';
+
+            // updatetime为空
+            $sql = 'INSERT INTO pwdmgmt_account(userid,accounttype,account,loginpassword,paypassword,username,telephone,email,securityemail,securityquestion,loginby,loginurl,website,shareurl,ipaddress,cardno,cardaddress,billdate,paydate,createtime,updatetime,expiredate,isvip,isvpn,usedpassword,remark) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+            $B = $this->db->query($sql, array($userid,$accounttype,$account,$loginpassword,$paypassword,$username,$telephone,$email,$securityemail,$securityquestion,$loginby,$loginurl,$website,$shareurl,$ipaddress,$cardno,$cardaddress,$billdate,$paydate,$createtime,$updatetime,$expiredate,$isvip,$isvpn,$usedpassword,$remark));
+            if ($B == 1) {
+                $responseArr = array();
+                $responseArr['isSuccess'] = 1;
+                $responseArr['desc'] = '插入成功';
+                echo json_encode($responseArr);
+            }
+            // -------------------
         }else{
             $responseArr = array();
             $responseArr['isSuccess'] = 0;

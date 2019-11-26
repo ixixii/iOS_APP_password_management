@@ -484,8 +484,8 @@ shareurl	varchar(255)
 ipaddress	varchar(255)			
 cardno	varchar(255)			
 cardaddress	varchar(255)			
-billdate	varchar(20)			
-paydate	varchar(20)		
+billdate	varchar(255)			
+paydate	varchar(255)		
 
 createtime	varchar(255)			
 updatetime	varchar(255)			
@@ -504,5 +504,45 @@ updatetime varchar255 无输入,自动生成
 git status 
 git add —all
 git commit -a -m "app端,完成新增帐号界面的UI搭建"
+git pull origin master
+git push origin master
+
+-------------------
+ID SQL自动生成,不用管
+
+useid
+accounttype
+account
+loginpassword
+paypassword
+username
+telephone
+email
+securityemail
+securityquestion
+loginby
+loginurl
+website
+shareurl
+ 
+ipaddress
+cardno
+cardaddress
+billdate
+paydate
+
+createtime PHP代码自动生成
+updatetime PHP代码自动生成
+
+expiredate
+isvip
+isvpn
+usedpassword
+remark
+
+提交代码
+git status 
+git add —all
+git commit -a -m "完成插入功能"
 git pull origin master
 git push origin master

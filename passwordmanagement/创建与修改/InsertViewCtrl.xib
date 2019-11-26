@@ -16,6 +16,29 @@
                 <outlet property="scrollView" destination="trS-aa-5Y1" id="qpi-pB-wne"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="xib_label_title" destination="sa0-AD-kQm" id="1wZ-Mb-7oW"/>
+                <outlet property="xib_textField_account" destination="vlQ-Ts-Ns8" id="Jxx-us-zSB"/>
+                <outlet property="xib_textField_accounttype" destination="xxi-6x-geu" id="6ae-Ap-Mkk"/>
+                <outlet property="xib_textField_billdate" destination="u4F-Jp-eDC" id="Y8C-tq-rzu"/>
+                <outlet property="xib_textField_cardaddress" destination="kcL-Cg-wCN" id="Kgq-K8-YYJ"/>
+                <outlet property="xib_textField_cardno" destination="aoL-cN-vg0" id="xHM-0j-OxR"/>
+                <outlet property="xib_textField_email" destination="eGb-g0-Aa0" id="zGa-HR-IJW"/>
+                <outlet property="xib_textField_expiredate" destination="W6B-p1-wfI" id="dbl-u4-eYp"/>
+                <outlet property="xib_textField_ipaddress" destination="WdD-8n-oTo" id="Go5-WB-Jbk"/>
+                <outlet property="xib_textField_isvip" destination="yVA-mT-lCu" id="7NZ-hL-kZr"/>
+                <outlet property="xib_textField_isvpn" destination="zUb-oQ-Gvy" id="R8N-dl-gWI"/>
+                <outlet property="xib_textField_loginby" destination="add-Hz-09s" id="bXj-Lz-LkG"/>
+                <outlet property="xib_textField_loginpassword" destination="tFj-iW-Fbe" id="b2A-Rq-w9j"/>
+                <outlet property="xib_textField_loginurl" destination="GS0-nj-xvp" id="kdq-to-IyB"/>
+                <outlet property="xib_textField_paydate" destination="1Fd-2o-bzw" id="wHY-H6-1v0"/>
+                <outlet property="xib_textField_paypassword" destination="Fol-zL-dj7" id="drI-Sf-8j9"/>
+                <outlet property="xib_textField_remark" destination="h2Q-p9-GZj" id="DvM-xz-ahJ"/>
+                <outlet property="xib_textField_securityemail" destination="Kfe-30-0PJ" id="Lpg-9f-9aV"/>
+                <outlet property="xib_textField_securityquestion" destination="jtg-lA-3CI" id="aaG-MG-ZVf"/>
+                <outlet property="xib_textField_shareurl" destination="7zv-Yd-wz0" id="GHz-tx-43t"/>
+                <outlet property="xib_textField_telephone" destination="mrv-3g-2eT" id="MlG-LS-b8y"/>
+                <outlet property="xib_textField_usedpassword" destination="lPx-vn-rpn" id="0fC-YM-NmF"/>
+                <outlet property="xib_textField_username" destination="CcQ-Kt-mVZ" id="sFh-aW-ze3"/>
+                <outlet property="xib_textField_website" destination="dhQ-mu-x0I" id="gmb-wN-1qn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -186,7 +209,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12. 网站链接" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goI-nG-yG3" userLabel="12.website">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12. website网站链接" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goI-nG-yG3" userLabel="12.website">
                             <rect key="frame" x="10" y="777.5" width="300" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -330,7 +353,6 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="dlc-fU-WVF"/>
                             </constraints>
-                            <string key="text">        在我们走过的季节里，路旁盛开的花朵也在不断变化，那个季节盛开的花是叫什么来着？轻轻摇曳着，一碰会微微刺痛，靠近一闻，隐约有股青涩的阳光的气息。那气息渐渐地淡去，我们也在慢慢长大。可是，那朵花一定还在某个地方盛开着……对，我们永远都会继续实现那朵花的愿望。</string>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -494,6 +516,9 @@
                         <constraint firstAttribute="width" constant="46" id="zEY-jo-lV8"/>
                     </constraints>
                     <state key="normal" image="done_btn.png"/>
+                    <connections>
+                        <action selector="addBtnClicked:" destination="-1" eventType="touchUpInside" id="2xM-66-nnV"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

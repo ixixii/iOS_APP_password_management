@@ -29,10 +29,10 @@
 - (instancetype)inflateCellWithModel:(AccountModel *)model
 {
     self.xib_label_id.text = [NSString stringWithFormat:@"ID: %@",@(model.ID)];
-    self.xib_label_accounttype.text = [NSString stringWithFormat:@"账号类型: %@",model.accounttype];
+    self.xib_label_accounttype.text = [NSString stringWithFormat:@"帐号类型: %@",model.accounttype];
     
     if(model.account.length > 0){
-        self.xib_label_account.text = [NSString stringWithFormat:@"账号: %@",model.account];
+        self.xib_label_account.text = [NSString stringWithFormat:@"帐号: %@",model.account];
     }else{
         self.xib_label_account.text = @"";
     }
