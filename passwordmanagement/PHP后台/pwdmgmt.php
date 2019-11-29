@@ -171,6 +171,60 @@ class Pwdmgmt extends CI_Controller {
         }
     }
 
+    // 删除接口
+    // http://sg31.com/ci/pwdmgmt/accountdelete
+    public function accountdelete(){
+        // 如果是get请求,则直接Return
+        $isGet = $_SERVER['REQUEST_METHOD'] == 'GET';
+        if($isGet){
+            $responseArr = array();
+            $responseArr['isSuccess'] = 0;
+            $responseArr['desc'] = '不支持Get请求';
+            echo json_encode($responseArr);
+            return;
+        }
+
+        // app提交过来的post请求中有sessionid
+        $sessionid = isset($_POST['sessionid'])? htmlspecialchars($_POST['sessionid']) : '';
+        // 如果sessionid为空,则报错
+        if($sessionid == ""){
+            $responseArr = array();
+            $responseArr['isSuccess'] = 0;
+            $responseArr['desc'] = '请登录';
+            echo json_encode($responseArr);
+            return;
+        }
+        // 根据sessionid查出userid,再根据userid查询pwdmgmt_account表中,该userid的所有帐号(后期可分页)
+        $sql = "select userid from pwdmgmt_session where sessionid = ?";
+        $res = $this->db->query($sql,array($sessionid));
+        $arr = $res->result_array();
+        if(count($arr) > 0){
+            // 查到了登录的用户
+            $userid = $arr[0]['userid'];
+            // 如果有查询querystr,则进行模糊搜索
+            $accountid = isset($_POST['accountid'])? htmlspecialchars($_POST['accountid']) : '';
+            $sql = "delete from pwdmgmt_account where userid = ? and ID = ?";
+            $B = $this->db->query($sql,array($userid, $accountid));
+            if($B == 1){
+                $responseArr = array();
+                $responseArr['isSuccess'] = 1;
+                $responseArr['desc'] = "删除成功";
+                echo json_encode($responseArr);
+            }else{
+                $responseArr = array();
+                $responseArr['isSuccess'] = 0;
+                $responseArr['desc'] = "删除失败";
+                echo json_encode($responseArr);
+            }
+        }else{
+            $responseArr = array();
+            $responseArr['isSuccess'] = 0;
+            $responseArr['desc'] = '未查到使用该session的登录用户';
+            echo json_encode($responseArr);
+        }
+    }
+
+
     // 新增帐号
     public function accountinsert(){
         // 如果是get请求,则直接Return

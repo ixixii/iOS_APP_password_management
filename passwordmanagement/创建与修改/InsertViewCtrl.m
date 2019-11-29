@@ -248,7 +248,9 @@
             
 //            [self jumpToLoginCtrl];
         }else if(isSuccess == 1){
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_insert_success" object:nil];
+            }];
             // 登录成功
 //            _dictArr = [responseDict objectForKey:@"desc"];
 //            _accountArr = [NSMutableArray arrayWithArray:[AccountModel objectArrayWithKeyValuesArray:_dictArr]];
@@ -364,9 +366,13 @@
     }
     
     // 创建时间
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    bodyString = [NSString stringWithFormat:@"%@&createtime=%@", bodyString, [formatter stringFromDate:[NSDate date]]];
     
-    // 修改时间
+    // 修改时间, 当创建时, 修改时间为空
     
+    // 过期时间
     tmpStr = self.xib_textField_expiredate.text;
     if(tmpStr.length > 0){
         bodyString = [NSString stringWithFormat:@"%@&expiredate=%@", bodyString, tmpStr];

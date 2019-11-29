@@ -50,6 +50,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessNoti:) name:@"notification_loginSuccess" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutSuccessNoti:) name:@"notification_logoutSuccess" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(insertSuccessNoti:) name:@"notification_insert_success" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteSuccessNoti:) name:@"notification_delete_success" object:nil];
+    
+    
+    
     // 如果登录状态,则进入页面时,请求接口
     [self requestData];
     
@@ -82,6 +88,14 @@
     [self addRightBtn];
     [self addLeftBtn];
     [self.tableView reloadData];
+}
+- (void)insertSuccessNoti:(NSNotification *)noti
+{
+    [self requestData];
+}
+- (void)deleteSuccessNoti:(NSNotification *)noti
+{
+    [self requestData];
 }
 
 - (void)addLeftBtn
@@ -294,7 +308,28 @@
     }
     
 }
-
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 0){
+        return NO;
+    }
+    return YES;
+}
+// 必须实现这个方法,才会出现侧滑删除效果
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 1. 获取ID
+    NSInteger modelIndex = indexPath.row - 1;
+    AccountModel *model = [_accountArr objectAtIndex:modelIndex];
+    NSLog(@"%ld",model.ID);
+    // 2. 调用删除接口
+    [self prepareToSendDeleteRequestWithAccountID:[NSString stringWithFormat:@"%ld",model.ID] index:modelIndex];
+    // 3. 局部刷新界面
+}
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    return @"删除";
+}
 #pragma mark - 列表接口
 - (void)requestData
 {
@@ -365,4 +400,55 @@
     [request setHTTPBody:body];
     return request;
 }
+
+#pragma mark - 删除接口
+- (void)prepareToSendDeleteRequestWithAccountID:(NSString *)accountID index:(NSInteger )index
+{
+    NSURLRequest *request = [self postDeleteRequestWithAccountID:accountID];
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response error:&error];
+    if (error != nil) {
+        NSLog(@"访问出错：%@", error.localizedDescription);
+        return;
+    }
+    if (data != nil) {
+        NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"返回的内容是：%@", string);
+        // 将返回的data转成json
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        NSLog(@"sg__%@",responseDict);
+        NSInteger isSuccess = [[responseDict objectForKey:@"isSuccess"] integerValue];
+        if(isSuccess == 0){
+            // 弹出失败原因
+            NSString *descStr = [responseDict objectForKey:@"desc"];
+            [SVProgressHUD showErrorWithStatus:descStr];
+        }else if(isSuccess == 1){
+            [_accountArr removeObjectAtIndex:index];
+            [self.tableView reloadData];
+        }
+    } else {
+        NSLog(@"没有接收到数据！");
+        [SVProgressHUD showErrorWithStatus:@"请检查网络!"];
+    }
+}
+
+- (NSURLRequest *)postDeleteRequestWithAccountID:(NSString *)accountID
+{
+    NSString *urlStr = @"http://sg31.com/ci/pwdmgmt/accountdelete";
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setTimeoutInterval:30.0];
+    [request setHTTPMethod:@"post"];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *sessionid = [userDefault objectForKey:@"userDefault_sessionid"];
+    NSString *bodyString = [NSString stringWithFormat:@"sessionid=%@", sessionid];
+    bodyString = [NSString stringWithFormat:@"%@&accountid=%@", bodyString, accountID];
+    NSLog(@"数据体字符串：%@", bodyString);
+    NSData *body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPBody:body];
+    return request;
+}
 @end
+
