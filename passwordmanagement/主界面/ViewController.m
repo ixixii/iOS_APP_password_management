@@ -305,6 +305,11 @@
     if(indexPath.row == 0 && [self isLogin]){
         [self jumpToUserCtrl];
         return;
+    }else if(indexPath.row > 0 && [self isLogin]){
+        // 弹出创建控制器,并且带数据过去回显
+        InsertViewCtrl *updateCtrl = [[InsertViewCtrl alloc]init];
+        updateCtrl.accountModel = [_accountArr objectAtIndex:indexPath.row - 1];
+        [self.navigationController presentViewController:updateCtrl animated:YES completion:nil];
     }
     
 }

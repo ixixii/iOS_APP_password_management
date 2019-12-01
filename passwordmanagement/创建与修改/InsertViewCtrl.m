@@ -35,6 +35,39 @@
     [super viewDidLoad];
     UITapGestureRecognizer *tapReco = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleTapped)];
     [self.xib_label_title addGestureRecognizer:tapReco];
+    
+    // 修改时,数据回显
+    if(self.accountModel){
+        self.xib_label_title.text = @"修改帐号";
+        [self dataDispay];
+    }
+}
+- (void)dataDispay
+{
+    self.xib_textField_accounttype.text = self.accountModel.accounttype;
+    self.xib_textField_account.text = self.accountModel.account;
+    // --------
+    self.xib_textField_loginpassword.text = self.accountModel.loginpassword;
+    self.xib_textField_paypassword.text = self.accountModel.paypassword;
+    self.xib_textField_username.text = self.accountModel.username;
+    self.xib_textField_telephone.text = self.accountModel.telephone;
+    self.xib_textField_email.text = self.accountModel.email;
+    self.xib_textField_securityemail.text = self.accountModel.securityemail;
+    self.xib_textField_securityquestion.text = self.accountModel.securityquestion;
+    self.xib_textField_loginby.text = self.accountModel.loginby;
+    self.xib_textField_loginurl.text = self.accountModel.loginurl;
+    self.xib_textField_website.text = self.accountModel.website;
+    self.xib_textField_shareurl.text = self.accountModel.shareurl;
+    self.xib_textField_ipaddress.text = self.accountModel.ipaddress;
+    self.xib_textField_cardno.text = self.accountModel.cardno;
+    self.xib_textField_cardaddress.text = self.accountModel.cardaddress;
+    self.xib_textField_billdate.text = self.accountModel.billdate;
+    self.xib_textField_paydate.text = self.accountModel.paydate;
+    self.xib_textField_expiredate.text = self.accountModel.expiredate;
+    self.xib_textField_isvip.text = self.accountModel.isvip;
+    self.xib_textField_isvpn.text = self.accountModel.isvpn;
+    self.xib_textField_usedpassword.text = self.accountModel.usedpassword;
+    self.xib_textField_remark.text = self.accountModel.remark;
 }
 - (void)titleTapped
 {
@@ -265,6 +298,9 @@
 - (NSURLRequest *)postInsertRequest
 {
     NSString *urlStr = @"http://sg31.com/ci/pwdmgmt/accountinsert";
+    if(self.accountModel){
+        urlStr = @"http://sg31.com/ci/pwdmgmt/accountupdate";
+    }
     NSURL *url = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setTimeoutInterval:30.0];
@@ -365,12 +401,18 @@
         bodyString = [NSString stringWithFormat:@"%@&paydate=%@", bodyString, tmpStr];
     }
     
-    // 创建时间
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    bodyString = [NSString stringWithFormat:@"%@&createtime=%@", bodyString, [formatter stringFromDate:[NSDate date]]];
+    // 修改时, 创建时间为空
+    if(self.accountModel){
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        bodyString = [NSString stringWithFormat:@"%@&updatetime=%@&accountid=%ld", bodyString, [formatter stringFromDate:[NSDate date]],self.accountModel.ID];
+    }else{
+        // 当创建时, 修改时间为空
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        bodyString = [NSString stringWithFormat:@"%@&createtime=%@", bodyString, [formatter stringFromDate:[NSDate date]]];
+    }
     
-    // 修改时间, 当创建时, 修改时间为空
     
     // 过期时间
     tmpStr = self.xib_textField_expiredate.text;

@@ -8,8 +8,10 @@
 //  重点是：lastView（其y是自动计算的），其下方一段动态的VMargin(距离scrollView底部)
 
 #import <UIKit/UIKit.h>
-
+#import "AccountModel.h"
 @interface InsertViewCtrl : UIViewController
+// 修改时,回显的数据源
+@property (nonatomic, strong) AccountModel *accountModel;
 
 // 要设置contentSize的height 等于 其height + 1
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

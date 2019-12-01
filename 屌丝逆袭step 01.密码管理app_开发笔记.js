@@ -562,8 +562,7 @@ PHP后台上: 删除接口 √
 
 创建时, 修改时间为空
 
-todo list 2: 点击 cell, 查看详情, 
-todo list 3: 右上角可以进行编辑, 左上角可以进行返回
+
 
 
 提交代码
@@ -572,3 +571,25 @@ git add —all
 git commit -a -m "优化插入时,创建时间字段;完成侧滑删除功能"
 git pull origin master
 git push origin master
+
+----------------------
+
+todo list 1: 后台,新增 修改接口 √
+
+todo list 2: 点击 cell, 进入修改界面(即原来的创建界面), 并进行数据回显
+保存时,调用update修改接口 √
+注意: 更新记录时,必须指定ID,不然就全部更新了
+
+
+提交代码
+git status 
+git add —all
+git commit -a -m "新增: 更新功能"
+git pull origin master
+git push origin master
+
+
+
+
+
+
