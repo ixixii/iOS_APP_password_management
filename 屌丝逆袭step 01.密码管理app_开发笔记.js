@@ -589,7 +589,31 @@ git pull origin master
 git push origin master
 
 
+----------------------
+1. 注册帐号功能
+点击登录按钮, 
+将用户名username, 密码password提交到后台
+
+后台首先查询表: pwdmgmt_user表
+select * from pwdmgmt_user where username = ?
+
+如果找到了, 再根据密码, 进行登录
+如果没有找到, 生成userid, 自动将username和password插入一条记录
+
+
+2. 异步请求
 
 
 
 
+上传app报错（Unable to download a software component: com.apple.transporter.mediatoolkit/1.13.0）
+查询后：
+第一种：
+
+报错信息：出现错误：
+A downloaded software component is corrupted and will not be used.
+解决方法：
+打开文件夹：
+/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/itms/bin/iTMSTransporter
+
+双击iTMSTransporter，会重新下载图中的2个jar文件，正常执行完，重新上传包即可。

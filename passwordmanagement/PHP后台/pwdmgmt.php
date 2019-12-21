@@ -57,12 +57,47 @@ class Pwdmgmt extends CI_Controller {
                 $responseArr['desc'] = '密码错误';
                 echo json_encode($responseArr);
             }
+        // }else{
+        //     $responseArr = array();
+        //     $responseArr['isSuccess'] = 0;
+        //     $responseArr['desc'] = '用户不存在';
+        //     echo json_encode($responseArr);
+        // }
         }else{
-            $responseArr = array();
-            $responseArr['isSuccess'] = 0;
-            $responseArr['desc'] = '用户不存在';
-            echo json_encode($responseArr);
-        }
+            // 拿username和password, 生成一个userid, 一个pubtime, 插入到pwdmgmt_user表
+            $userid = md5(uniqid(md5(microtime(true)),true));
+            $pubtime = time();
+            $sql = "insert into pwdmgmt_user(userid, username, password, pubtime) values(?,?,?,?)";
+            $B = $this->db->query($sql, array($userid,$username,$password,$pubtime));
+            if ($B == 1) {
+                // $responseArr = array();
+                // $responseArr['isSuccess'] = 1;
+                // $responseArr['desc'] = '插入成功';
+                // echo json_encode($responseArr);
+
+
+                // 生成sessionid, 并存入session表
+                // 如果登录用户名密码正确
+                // 生成唯一的sessionid
+                $sessionid = md5(uniqid(md5(microtime(true)),true));
+                $pubtime = time();
+                // id, userid, sessionid, pubtime
+                $sql = "insert into pwdmgmt_session(userid,sessionid,pubtime) values (?,?,?)";
+                $B = $this->db->query($sql,array($userid,$sessionid,$pubtime));
+                if($B == 1){
+                    // 插入成功,将sessionid返回给app
+                    // echo $sessionid; // 4f218c219c0a5156c75995d3058fe221
+                    $responseArr = array();
+                    $responseArr['isSuccess'] = 1;
+                    $descArr = array();
+                    $descArr['sessionid'] = $sessionid;
+                    $descArr['msg'] = '请将sessionid保存到app本地,并且每次请求都带上sessionid';
+                    $responseArr['desc'] = $descArr;
+                    echo json_encode($responseArr);
+                }
+            }
+
+        }    
     }
 
     // 退出登录接口
