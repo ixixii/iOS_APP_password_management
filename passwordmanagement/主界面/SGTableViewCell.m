@@ -29,150 +29,150 @@
 - (instancetype)inflateCellWithModel:(AccountModel *)model
 {
     self.xib_label_id.text = [NSString stringWithFormat:@"ID: %@",@(model.ID)];
-    self.xib_label_accounttype.text = [NSString stringWithFormat:@"帐号类型: %@",model.accounttype];
+    self.xib_label_accounttype.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_accountType", nil),model.accounttype];
     
     if(model.account.length > 0){
-        self.xib_label_account.text = [NSString stringWithFormat:@"帐号: %@",model.account];
+        self.xib_label_account.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_account", nil),model.account];
     }else{
         self.xib_label_account.text = @"";
     }
     
     
     if(model.loginpassword.length > 0){
-        self.xib_label_loginpassword.text = [NSString stringWithFormat:@"登录密码: %@",model.loginpassword];
+        self.xib_label_loginpassword.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_loginpassword", nil),model.loginpassword];
     }else{
         self.xib_label_loginpassword.text = @"";
     }
     
     if(model.paypassword.length > 0){
-        self.xib_label_paypassword.text = [NSString stringWithFormat:@"支付密码: %@",model.paypassword];
+        self.xib_label_paypassword.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_paypassword", nil),model.paypassword];
     }else{
         self.xib_label_paypassword.text = @"";
     }
     
     if(model.usedpassword.length > 0){
-        self.xib_label_usedpassword.text = [NSString stringWithFormat:@"曾用密码: %@",model.usedpassword];
+        self.xib_label_usedpassword.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_usedpassword", nil),model.usedpassword];
     }else{
         self.xib_label_usedpassword.text = @"";
     }
     
     if(model.username.length > 0){
-        self.xib_label_username.text = [NSString stringWithFormat:@"用户名: %@",model.username];
+        self.xib_label_username.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_username", nil),model.username];
     }else{
         self.xib_label_username.text = @"";
     }
     
     if(model.telephone.length > 0){
-        self.xib_label_telephone.text = [NSString stringWithFormat:@"手机号: %@",model.telephone];
+        self.xib_label_telephone.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_telephone", nil),model.telephone];
     }else{
         self.xib_label_telephone.text = @"";
     }
     
     if(model.email.length > 0){
-        self.xib_label_email.text = [NSString stringWithFormat:@"邮箱: %@",model.email];
+        self.xib_label_email.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_email", nil),model.email];
     }else{
         self.xib_label_email.text = @"";
     }
     
     if(model.securityemail.length > 0){
-        self.xib_label_securityemail.text = [NSString stringWithFormat:@"安全邮箱: %@",model.securityemail];
+        self.xib_label_securityemail.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_securityemail", nil),model.securityemail];
     }else{
         self.xib_label_securityemail.text = @"";
     }
     
     if(model.securityquestion.length > 0){
-        self.xib_label_securityquestion.text = [NSString stringWithFormat:@"密保问题: %@",model.securityquestion];
+        self.xib_label_securityquestion.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_securityquestion", nil),model.securityquestion];
     }else{
         self.xib_label_securityquestion.text = @"";
     }
     
     if(model.loginby.length > 0){
-        self.xib_label_loginby.text = [NSString stringWithFormat:@"登录方式: %@",model.loginby];
+        self.xib_label_loginby.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_loginby", nil),model.loginby];
     }else{
         self.xib_label_loginby.text = @"";
     }
     
     if(model.loginurl.length > 0){
-        self.xib_label_loginurl.text = [NSString stringWithFormat:@"登录链接: %@",model.loginurl];
+        self.xib_label_loginurl.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_loginurl", nil),model.loginurl];
     }else{
         self.xib_label_loginurl.text = @"";
     }
     
     if(model.website.length > 0){
-        self.xib_label_website.text = [NSString stringWithFormat:@"网站链接: %@",model.website];
+        self.xib_label_website.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_website", nil),model.website];
     }else{
         self.xib_label_website.text = @"";
     }
     
     if(model.shareurl.length > 0){
-        self.xib_label_shareurl.text = [NSString stringWithFormat:@"推广链接: %@",model.shareurl];
+        self.xib_label_shareurl.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_shareurl", nil),model.shareurl];
     }else{
         self.xib_label_shareurl.text = @"";
     }
     
     if(model.ipaddress.length > 0){
-        self.xib_label_ipaddress.text = [NSString stringWithFormat:@"IP地址: %@",model.ipaddress];
+        self.xib_label_ipaddress.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_ipaddress", nil),model.ipaddress];
     }else{
         self.xib_label_ipaddress.text = @"";
     }
     
     if(model.cardno.length > 0){
-        self.xib_label_cardno.text = [NSString stringWithFormat:@"银行卡号: %@",model.cardno];
+        self.xib_label_cardno.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_cardno", nil),model.cardno];
     }else{
         self.xib_label_cardno.text = @"";
     }
     
     if(model.cardaddress.length > 0){
-        self.xib_label_cardaddress.text = [NSString stringWithFormat:@"开户行: %@",model.cardaddress];
+        self.xib_label_cardaddress.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_cardaddress", nil),model.cardaddress];
     }else{
         self.xib_label_cardaddress.text = @"";
     }
     
     if(model.billdate.length > 0){
-        self.xib_label_billdate.text = [NSString stringWithFormat:@"账单日: %@",model.billdate];
+        self.xib_label_billdate.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_billdate", nil),model.billdate];
     }else{
         self.xib_label_billdate.text = @"";
     }
     
     if(model.paydate.length > 0){
-        self.xib_label_paydate.text = [NSString stringWithFormat:@"还款日: %@",model.paydate];
+        self.xib_label_paydate.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_paydate", nil),model.paydate];
     }else{
         self.xib_label_paydate.text = @"";
     }
     
     if(model.createtime.length > 0){
-        self.xib_label_createtime.text = [NSString stringWithFormat:@"创建日期: %@",[SGTableViewCell timeStringFromTimeStamp:model.createtime]];
+        self.xib_label_createtime.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_createtime", nil),[SGTableViewCell timeStringFromTimeStamp:model.createtime]];
     }else{
         self.xib_label_createtime.text = @"";
     }
     
     if(model.updatetime.length > 0){
-        self.xib_label_updatetime.text = [NSString stringWithFormat:@"更新日期: %@",[SGTableViewCell timeStringFromTimeStamp:model.updatetime]];
+        self.xib_label_updatetime.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_updatetime", nil),[SGTableViewCell timeStringFromTimeStamp:model.updatetime]];
     }else{
         self.xib_label_updatetime.text = @"";
     }
     
     if(model.expiredate.length > 0){
-        self.xib_label_expiredate.text = [NSString stringWithFormat:@"过期日期: %@",[SGTableViewCell timeStringFromTimeStamp:model.expiredate]];
+        self.xib_label_expiredate.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_expiredate", nil),[SGTableViewCell timeStringFromTimeStamp:model.expiredate]];
     }else{
         self.xib_label_expiredate.text = @"";
     }
     
     if(model.isvip.length > 0){
-        self.xib_label_isvip.text = [NSString stringWithFormat:@"是否VIP: %@",model.isvip];
+        self.xib_label_isvip.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_isvip", nil),model.isvip];
     }else{
         self.xib_label_isvip.text = @"";
     }
     
     if(model.isvpn.length > 0){
-        self.xib_label_isvpn.text = [NSString stringWithFormat:@"是否VPN: %@",model.isvpn];
+        self.xib_label_isvpn.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_needvpn", nil),model.isvpn];
     }else{
         self.xib_label_isvpn.text = @"";
     }
     
     
     if(model.remark.length > 0){
-        self.xib_label_remark.text = [NSString stringWithFormat:@"备注: %@",model.remark];
+        self.xib_label_remark.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"i18n_remark", nil),model.remark];
     }else{
         self.xib_label_remark.text = @"";
     }

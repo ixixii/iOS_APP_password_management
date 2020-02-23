@@ -584,7 +584,7 @@ todo list 2: 点击 cell, 进入修改界面(即原来的创建界面), 并进�
 提交代码
 git status 
 git add —all
-git commit -a -m "新增: 更新功能"
+git commit -a -m "新增: 注册功能"
 git pull origin master
 git push origin master
 
@@ -617,3 +617,50 @@ A downloaded software component is corrupted and will not be used.
 /Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/itms/bin/iTMSTransporter
 
 双击iTMSTransporter，会重新下载图中的2个jar文件，正常执行完，重新上传包即可。
+------------------------
+2020-02-23 国际化
+参考：https://www.cnblogs.com/yanzheng216/p/8674722.html
+
+1.App名称国际化
+1.1 删除info.plist中的Bundle display name
+1.2 project->info->Localizations添加对应语言
+1.2 新建InfoPlist.strings
+1.3 点击右边的Localize...
+1.4 勾选语言
+1.5 分别输入：
+CFBundleDisplayName = "Account Mgmt";
+CFBundleDisplayName = "帐号管理";
+
+2. storyboard文件国际化
+2.1 搜索.strings文件 
+2.2 照猫画虎添加英文
+
+3. cell xib中文化国际化
+3.1 点击Label上的文字，直接Localize,选择Base
+3.2 勾选语言:中文 与 英文
+3.2 展开xib，修改文本
+
+4. 代码中的文字 国际化
+4.1 新建Localizable.strings文件 
+4.2 点击Localizable.strings文件右侧的Localiza...
+4.3 勾选所要支持的语言
+4.4 定义
+"i18n_login" = "登陆"
+4.5 使用
+	NSString *nameStr= NSLocalizedString(@"i18n_login", nil);  //获取配置语言文字
+
+	NSLocalizedString(@"i18n_modifyaccount", nil)
+
+When you log in, you agree to the license agreement
+《许可协议》
+
+"i18n_login" = "Log In";
+"i18n_accountType" = "Account Type";
+
+"i18n_login" = "登录";
+"i18n_accountType" = "帐号类型";
+
+---------------
+v1.1提交报错：
+ITMS-90745: Invalid Toolchain
+Xcode or SDK that is not yet supported.

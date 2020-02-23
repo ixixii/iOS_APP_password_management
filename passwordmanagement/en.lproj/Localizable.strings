@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  passwordmanagement
+
+  Created by beyond on 2020/02/23.
+  Copyright © 2020 beyond. All rights reserved.
+*/
+"i18n_login" = "Log In";
+"i18n_accountType" = "Account Type";
+"i18n_account" = "Account";
+"i18n_loginpassword" = "Login password";
+"i18n_paypassword" = "Pay password";
+"i18n_usedpassword" = "Used password";
+"i18n_username" = "Username";
+"i18n_telephone" = "Telephone";
+"i18n_email" = "Email";
+"i18n_securityemail" = "Security email";
+"i18n_securityquestion" = "Security question";
+"i18n_loginby" = "Login by";
+"i18n_loginurl" = "Login url";
+"i18n_website" = "Website";
+"i18n_shareurl" = "Share url";
+"i18n_ipaddress" = "IP address";
+"i18n_cardno" = "Card number";
+"i18n_cardaddress" = "Card address";
+"i18n_billdate" = "Bill date";
+"i18n_paydate" = "Pay date";
+"i18n_createtime" = "Create time";
+"i18n_updatetime" = "Update time";
+"i18n_expiredate" = "Expire date";
+"i18n_isvip" = "is VIP";
+"i18n_needvpn" = "Need VPN";
+"i18n_remark" = "Remark";
+
+"i18n_cancel" = "Cancel";
+"i18n_confirm" = "Confirm";
+"i18n_querytitle" = "Please enter keywords to query";
+"i18n_queryhint" = "If you click OK directly, all accounts will be displayed";
+
+"i18n_welcome" = "Welcome back";
+"i18n_modifyaccount" = "Modify Account";

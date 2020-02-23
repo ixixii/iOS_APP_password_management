@@ -133,7 +133,7 @@
 {
     CGRect btnFrame = CGRectMake(0, 0, 32, 32);
     UIButton *loginBtn = [[UIButton alloc]initWithFrame:btnFrame];
-    [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    [loginBtn setTitle:NSLocalizedString(@"i18n_login", nil) forState:UIControlStateNormal];
     [loginBtn setTitleColor:kColor(14,89,254) forState:UIControlStateNormal];
     [loginBtn setTitleColor:kColor(255,0,0) forState:UIControlStateHighlighted];
     [loginBtn addTarget:self action:@selector(jumpToLoginCtrl) forControlEvents:UIControlEventTouchUpInside];
@@ -157,11 +157,11 @@
 {
     // 弹出搜索输入框
     NSLog(@"sg__弹出搜索输入框");
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"请输入要查询的关键字"
-                                                    message:@"如:QQ,微信,支付宝"
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"i18n_querytitle", nil)
+                                                    message:NSLocalizedString(@"i18n_queryhint", nil)
                                                    delegate:self
-                                          cancelButtonTitle:@"取消"
-                                          otherButtonTitles:@"确定", nil];
+                                          cancelButtonTitle:NSLocalizedString(@"i18n_cancel", nil)
+                                          otherButtonTitles:NSLocalizedString(@"i18n_confirm", nil), nil];
     alert.tag = 5267;
     // 基本输入框，显示实际输入的内容
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -202,7 +202,7 @@
                 }else{
                     self.queryStr = @"";
                     [self requestData];
-                    self.title = @"帐号";
+                    self.title = NSLocalizedString(@"i18n_account", nil);
                 }
             }
         }
@@ -311,7 +311,6 @@
         updateCtrl.accountModel = [_accountArr objectAtIndex:indexPath.row - 1];
         [self.navigationController presentViewController:updateCtrl animated:YES completion:nil];
     }
-    
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -376,6 +375,13 @@
             _dictArr = [responseDict objectForKey:@"desc"];
             _accountArr = [NSMutableArray arrayWithArray:[AccountModel objectArrayWithKeyValuesArray:_dictArr]];
             [self.tableView reloadData];
+            
+            // 从本地取出username
+            // 欢迎回来,username
+            NSString *username = [[NSUserDefaults standardUserDefaults]objectForKey:@"userDefault_username"];
+            if(username.length > 0 && self.queryStr.length == 0){
+                [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"%@,%@",NSLocalizedString(@"i18n_welcome", nil),username]];
+            }
         }
     } else {
         NSLog(@"没有接收到数据！");

@@ -1,0 +1,75 @@
+
+/* Class = "UILabel"; text = "3. loginpassword登录密码"; ObjectID = "1yw-VE-WJe"; */
+"1yw-VE-WJe.text" = "3. login password";
+
+/* Class = "UILabel"; text = "15. cardno银行卡号"; ObjectID = "2cX-Bd-oC9"; */
+"2cX-Bd-oC9.text" = "15. card number";
+
+/* Class = "UILabel"; text = "1. accounttype 帐号类型"; ObjectID = "30k-ai-CAc"; */
+"30k-ai-CAc.text" = "1. account type";
+
+/* Class = "UILabel"; text = "9. securityquestion密保问题"; ObjectID = "4l9-Hb-RVU"; */
+"4l9-Hb-RVU.text" = "9. security question";
+
+/* Class = "UILabel"; text = "13. shareurl推广链接"; ObjectID = "5yq-22-nNb"; */
+"5yq-22-nNb.text" = "13. share url";
+
+/* Class = "UILabel"; text = "----我是底线----"; ObjectID = "DCQ-uR-7cN"; */
+"DCQ-uR-7cN.text" = "----end line----";
+
+/* Class = "UILabel"; text = "21. isvpn 是否VPN"; ObjectID = "FN6-kr-YLR"; */
+"FN6-kr-YLR.text" = "21. is vpn ";
+
+/* Class = "UILabel"; text = "17. billdate账单日"; ObjectID = "KBo-l0-pyj"; */
+"KBo-l0-pyj.text" = "17. bill date";
+
+/* Class = "UILabel"; text = "2. account帐号"; ObjectID = "KLR-Eb-HUN"; */
+"KLR-Eb-HUN.text" = "2. account";
+
+/* Class = "UILabel"; text = "19. expiredate过期日期"; ObjectID = "NNx-Wa-HdW"; */
+"NNx-Wa-HdW.text" = "19. expire date";
+
+/* Class = "UILabel"; text = "8. securityemail安全邮箱"; ObjectID = "Oxp-IN-ayx"; */
+"Oxp-IN-ayx.text" = "8. security email";
+
+/* Class = "UILabel"; text = "10. loginby登录方式"; ObjectID = "Sci-yW-wWE"; */
+"Sci-yW-wWE.text" = "10. login by";
+
+/* Class = "UILabel"; text = "11. loginurl登录链接"; ObjectID = "Sg5-Wo-sve"; */
+"Sg5-Wo-sve.text" = "11. login url";
+
+/* Class = "UILabel"; text = "7. email邮箱"; ObjectID = "TMR-Yq-Ude"; */
+"TMR-Yq-Ude.text" = "7. email";
+
+/* Class = "UILabel"; text = "6. telephone手机号"; ObjectID = "UNT-bZ-OAO"; */
+"UNT-bZ-OAO.text" = "6. telephone";
+
+/* Class = "UILabel"; text = "20. isvip是否VIP"; ObjectID = "Z8W-cm-Lmc"; */
+"Z8W-cm-Lmc.text" = "20. is vip";
+
+/* Class = "UILabel"; text = "5. username用户名"; ObjectID = "b5r-OW-VT0"; */
+"b5r-OW-VT0.text" = "5. username";
+
+/* Class = "UILabel"; text = "23. remark 备注"; ObjectID = "cGj-2G-OzC"; */
+"cGj-2G-OzC.text" = "23. remark";
+
+/* Class = "UILabel"; text = "12. website网站链接"; ObjectID = "goI-nG-yG3"; */
+"goI-nG-yG3.text" = "12. website";
+
+/* Class = "UILabel"; text = "14. ipaddress IP地址"; ObjectID = "kSO-U2-jsg"; */
+"kSO-U2-jsg.text" = "14. ip address";
+
+/* Class = "UILabel"; text = "4. paypassword支付密码"; ObjectID = "l3y-Dc-6pC"; */
+"l3y-Dc-6pC.text" = "4. pay password";
+
+/* Class = "UILabel"; text = "18. paydate还款日"; ObjectID = "m57-qN-unh"; */
+"m57-qN-unh.text" = "18. pay date";
+
+/* Class = "UILabel"; text = "22. usedpassword 曾用密码"; ObjectID = "m72-NF-Kg4"; */
+"m72-NF-Kg4.text" = "22. used password";
+
+/* Class = "UILabel"; text = "16. cardaddress开户行"; ObjectID = "n80-ml-TgA"; */
+"n80-ml-TgA.text" = "16. card address";
+
+/* Class = "UILabel"; text = "添加帐号"; ObjectID = "sa0-AD-kQm"; */
+"sa0-AD-kQm.text" = "Add Account";

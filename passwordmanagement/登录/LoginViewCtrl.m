@@ -10,6 +10,7 @@
 #import "SVProgressHUD.h"
 
 @interface LoginViewCtrl ()
+@property (weak, nonatomic) IBOutlet UILabel *xib_label_privacy;
 
 @end
 
@@ -17,6 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *tapReco = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(privacyLabelTapped:)];
+    _xib_label_privacy.userInteractionEnabled = YES;
+    [_xib_label_privacy addGestureRecognizer:tapReco];
 }
 - (IBAction)loginBtnClicked:(UIButton *)sender {
     // 1. 通过自定义的方法返回登录请求
@@ -63,6 +67,9 @@
             NSLog(@"sg--");
             // [[NSUserDefaults standardUserDefaults] objectForKey:@""]
             [[NSUserDefaults standardUserDefaults]setObject:sessionid forKey:@"userDefault_sessionid"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            // 将用户名存入本地
+            [[NSUserDefaults standardUserDefaults]setObject:_xib_textField_username.text forKey:@"userDefault_username"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             // 弹出登录成功消息
             // [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"登录成功,%@",msgStr]];
@@ -120,4 +127,8 @@
 }
 */
 
+- (IBAction)privacyBtnClicked:(UIButton *)sender {
+    UIViewController *ctrl = [[NSClassFromString(@"PrivacyViewCtrl") alloc]init];
+    [self presentViewController:ctrl animated:YES completion:nil];
+}
 @end

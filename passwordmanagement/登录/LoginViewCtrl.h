@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LoginViewCtrl : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *xib_textField_username;
 @property (weak, nonatomic) IBOutlet UITextField *xib_textField_password;
+- (IBAction)privacyBtnClicked:(UIButton *)sender;
 
 @end
 

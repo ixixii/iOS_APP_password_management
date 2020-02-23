@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16085" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16078.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,42 +20,48 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcc-6u-5I1">
-                    <rect key="frame" x="20" y="60" width="67" height="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcc-6u-5I1">
+                    <rect key="frame" x="20" y="40" width="95" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTF-5e-4Z8" userLabel="userNameField">
-                    <rect key="frame" x="107" y="60" width="248" height="44"/>
+                    <rect key="frame" x="135" y="40" width="220" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="3Z2-oG-DpF"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZH-aA-KOB">
-                    <rect key="frame" x="40" y="122" width="46.5" height="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZH-aA-KOB">
+                    <rect key="frame" x="20" y="102" width="89.5" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44K-hv-lfr" userLabel="passwordField">
-                    <rect key="frame" x="107" y="112" width="248" height="44"/>
+                    <rect key="frame" x="135" y="92" width="220" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="04b-4R-Cdb"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYP-ct-RMg" userLabel="loginBtn">
-                    <rect key="frame" x="20" y="196" width="335" height="39"/>
+                    <rect key="frame" x="20" y="176" width="335" height="39"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                    <state key="normal" title="登　录"/>
+                    <state key="normal" title="Log　In"/>
                     <connections>
                         <action selector="loginBtnClicked:" destination="-1" eventType="touchUpInside" id="jdZ-M5-hRy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yq-nE-jgx" userLabel="pricacyBtn">
+                    <rect key="frame" x="20" y="618" width="335" height="29"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                    <state key="normal" title="When log in, you agree to the license agreement"/>
+                    <connections>
+                        <action selector="privacyBtnClicked:" destination="-1" eventType="touchUpInside" id="VOT-mQ-dSO"/>
                     </connections>
                 </button>
             </subviews>
@@ -71,8 +75,11 @@
                 <constraint firstItem="44K-hv-lfr" firstAttribute="leading" secondItem="HTF-5e-4Z8" secondAttribute="leading" id="KKt-4x-xP4"/>
                 <constraint firstItem="Tcc-6u-5I1" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="40" id="KMa-x7-8lM"/>
                 <constraint firstItem="bYP-ct-RMg" firstAttribute="top" secondItem="44K-hv-lfr" secondAttribute="bottom" constant="40" id="Kb4-1j-qiG"/>
-                <constraint firstItem="bZH-aA-KOB" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="TEC-bE-z9a"/>
+                <constraint firstItem="bZH-aA-KOB" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="TEC-bE-z9a"/>
+                <constraint firstItem="4Yq-nE-jgx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="X5K-tW-pOA"/>
                 <constraint firstItem="44K-hv-lfr" firstAttribute="centerY" secondItem="bZH-aA-KOB" secondAttribute="centerY" id="atD-tT-CKZ"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="4Yq-nE-jgx" secondAttribute="trailing" constant="20" id="iAW-un-Z69"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="4Yq-nE-jgx" secondAttribute="bottom" constant="20" id="iGo-tp-qAf"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="HTF-5e-4Z8" secondAttribute="trailing" constant="20" id="rCc-ey-sAg"/>
                 <constraint firstItem="Tcc-6u-5I1" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="rGE-HR-WEw"/>
                 <constraint firstItem="HTF-5e-4Z8" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="40" id="sGv-bB-icn"/>

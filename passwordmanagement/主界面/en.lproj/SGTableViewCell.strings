@@ -1,0 +1,78 @@
+
+/* Class = "UILabel"; text = "旧密码: 1*6圈圈"; ObjectID = "0RY-rj-8OQ"; */
+"0RY-rj-8OQ.text" = "旧密码: 1*6圈圈";
+
+/* Class = "UILabel"; text = "还款日: 无"; ObjectID = "0Sl-Qz-iz1"; */
+"0Sl-Qz-iz1.text" = "还款日: 无";
+
+/* Class = "UILabel"; text = "更新时间: 无"; ObjectID = "4Tc-3w-dOX"; */
+"4Tc-3w-dOX.text" = "更新时间: 无";
+
+/* Class = "UILabel"; text = "银行卡号: 无"; ObjectID = "ALN-54-F4c"; */
+"ALN-54-F4c.text" = "银行卡号: 无";
+
+/* Class = "UILabel"; text = "要不要VPN: 否"; ObjectID = "CKj-o4-FXb"; */
+"CKj-o4-FXb.text" = "要不要VPN: 否";
+
+/* Class = "UILabel"; text = "登录方式: 账号"; ObjectID = "Fq9-jl-uBY"; */
+"Fq9-jl-uBY.text" = "登录方式: 账号";
+
+/* Class = "UILabel"; text = "登录链接: 无"; ObjectID = "G7Q-DE-Sme"; */
+"G7Q-DE-Sme.text" = "登录链接: 无";
+
+/* Class = "UILabel"; text = "用户名: beyond"; ObjectID = "JmJ-bh-15v"; */
+"JmJ-bh-15v.text" = "用户名: beyond";
+
+/* Class = "UILabel"; text = "手机号: 157*67"; ObjectID = "OVo-st-j6L"; */
+"OVo-st-j6L.text" = "手机号: 157*67";
+
+/* Class = "UILabel"; text = "IP地址: 无"; ObjectID = "PHb-MD-vK4"; */
+"PHb-MD-vK4.text" = "IP地址: 无";
+
+/* Class = "UILabel"; text = "创建时间: 无"; ObjectID = "PYb-NL-Hf2"; */
+"PYb-NL-Hf2.text" = "创建时间: 无";
+
+/* Class = "UILabel"; text = "过期日期: 无"; ObjectID = "SMl-k1-Nqe"; */
+"SMl-k1-Nqe.text" = "过期日期: 无";
+
+/* Class = "UILabel"; text = "推广链接: 无"; ObjectID = "Wma-bo-DsA"; */
+"Wma-bo-DsA.text" = "推广链接: 无";
+
+/* Class = "UILabel"; text = "支付密码: 5*8"; ObjectID = "Z03-AM-wez"; */
+"Z03-AM-wez.text" = "支付密码: 5*8";
+
+/* Class = "UILabel"; text = "账单日: 无"; ObjectID = "aMJ-9L-gSn"; */
+"aMJ-9L-gSn.text" = "账单日: 无";
+
+/* Class = "UILabel"; text = "是不是VIP: 否"; ObjectID = "aRR-hB-3TH"; */
+"aRR-hB-3TH.text" = "是不是VIP: 否";
+
+/* Class = "UILabel"; text = "备注: 无"; ObjectID = "bDS-4d-OEK"; */
+"bDS-4d-OEK.text" = "备注: 无";
+
+/* Class = "UILabel"; text = "帐号类型: QQ"; ObjectID = "bQI-cI-xDy"; */
+"bQI-cI-xDy.text" = "帐号类型: QQ";
+
+/* Class = "UILabel"; text = "登录密码: 1*8圈圈"; ObjectID = "ddp-wG-NZF"; */
+"ddp-wG-NZF.text" = "登录密码: 1*8圈圈";
+
+/* Class = "UILabel"; text = "网站链接: 无"; ObjectID = "eTt-pQ-s0K"; */
+"eTt-pQ-s0K.text" = "网站链接: 无";
+
+/* Class = "UILabel"; text = "开户行: 无"; ObjectID = "gKe-Xc-yzM"; */
+"gKe-Xc-yzM.text" = "开户行: 无";
+
+/* Class = "UILabel"; text = "帐号: 308829827"; ObjectID = "mXW-Za-1q4"; */
+"mXW-Za-1q4.text" = "帐号: 308829827";
+
+/* Class = "UILabel"; text = "密保问题: 无"; ObjectID = "mfH-ZK-VWK"; */
+"mfH-ZK-VWK.text" = "密保问题: 无";
+
+/* Class = "UILabel"; text = "邮箱: 308829827@qq.com"; ObjectID = "ptW-rl-mpO"; */
+"ptW-rl-mpO.text" = "邮箱: 308829827@qq.com";
+
+/* Class = "UILabel"; text = "安全邮箱: 无"; ObjectID = "uCU-2W-Ccx"; */
+"uCU-2W-Ccx.text" = "安全邮箱: 无";
+
+/* Class = "UILabel"; text = "id: 1"; ObjectID = "zEF-3n-Q6D"; */
+"zEF-3n-Q6D.text" = "id: 1";

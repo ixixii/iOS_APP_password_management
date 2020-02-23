@@ -38,7 +38,7 @@
     
     // 修改时,数据回显
     if(self.accountModel){
-        self.xib_label_title.text = @"修改帐号";
+        self.xib_label_title.text = NSLocalizedString(@"i18n_modifyaccount", nil);
         [self dataDispay];
     }
 }

@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  passwordmanagement
+
+  Created by beyond on 2020/02/23.
+  Copyright © 2020 beyond. All rights reserved.
+*/
+"i18n_login" = "登录";
+"i18n_accountType" = "账号类型";
+"i18n_account" = "账号";
+"i18n_loginpassword" = "登录密码";
+"i18n_paypassword" = "支付密码";
+"i18n_usedpassword" = "曾用密码";
+"i18n_username" = "用户名";
+"i18n_telephone" = "手机号";
+"i18n_email" = "邮箱";
+"i18n_securityemail" = "安全邮箱";
+"i18n_securityquestion" = "密保问题";
+"i18n_loginby" = "登录方式";
+"i18n_loginurl" = "登录链接";
+"i18n_website" = "网站链接";
+"i18n_shareurl" = "推广链接";
+"i18n_ipaddress" = "IP地址";
+"i18n_cardno" = "银行卡号";
+"i18n_cardaddress" = "开户行";
+"i18n_billdate" = "账单日";
+"i18n_paydate" = "还款日";
+"i18n_createtime" = "创建日期";
+"i18n_updatetime" = "更新日期";
+"i18n_expiredate" = "过期日期";
+"i18n_isvip" = "是否VIP";
+"i18n_needvpn" = "是否VPN";
+
+"i18n_remark" = "备注";
+"i18n_cancel" = "取消";
+"i18n_confirm" = "确定";
+"i18n_querytitle" = "请输入要查询的关键字";
+"i18n_queryhint" = "如:账号,用户名,手机号等\n支持模糊查询\n如果直接点击确定,则展示所有账号";
+
+"i18n_welcome" = "欢迎回来";
+"i18n_modifyaccount" = "修改帐号";
+
