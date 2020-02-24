@@ -17,6 +17,8 @@
 #import "MJRefresh.h"
 
 #import "InsertViewCtrl.h"
+#import "WebViewCtrl.h"
+#import <WebKit/WebKit.h>
 
 #define kColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
@@ -24,6 +26,7 @@
 {
     NSArray *_dictArr;
     NSMutableArray *_accountArr;
+    WKWebView *_webView;
 }
 @property (strong,nonatomic)UISearchController *searchCtrl;
 @end
@@ -56,11 +59,58 @@
     
     
     
-    // 如果登录状态,则进入页面时,请求接口
-    [self requestData];
-    
     // 右上角搜索按钮
     [self addLeftBtn];
+    
+    // 首先请求mock api，如果开关打开，则跳转到webview升级版
+    // 如果开关关闭，则请求列表数据
+    [self mockapirequest];
+}
+- (void)mockapirequest
+{
+    
+    NSString *urlStr = @"http://mock-api.com/ZgBZdkgB.mock/api/v1/config";
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setTimeoutInterval:30.0];
+    [request setHTTPMethod:@"get"];
+
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response error:&error];
+    if (error != nil) {
+        NSLog(@"访问出错：%@", error.localizedDescription);
+        return;
+    }
+    if (data != nil) {
+        // 将返回的data转成json
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        NSInteger ison = [[responseDict objectForKey:@"ison"] integerValue];
+        if(ison == 0){
+            // 如果开关没有打开，则请求列表接口
+            [self requestData];
+        }else{
+            // 如果开关打开了，则跳转至webview升级版，并且将url传过去
+            NSString *url = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"url"]];
+            NSLog(@"sg__%@",url);
+            // 传递过去
+            // 跳转
+//            WebViewCtrl *webViewCtrl = [[WebViewCtrl alloc] initWithNibName:@"WebViewCtrl" bundle:nil];
+//            UINavigationController *navRoot = [[UINavigationController alloc] initWithRootViewController:webViewCtrl];
+//            self.view.window.rootViewController = navRoot;
+            
+//            [self.navigationController presentViewController:webViewCtrl animated:YES completion:nil];
+            
+            // 创建一个MKWebView盖上面
+            _webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+            [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+            [self.navigationController.view addSubview:_webView];
+            
+        }
+        
+    }
+    
 }
 #pragma mark - 初始化
 - (void)initTableView

@@ -59,6 +59,8 @@
 		30C007B723253A3A000B2538 /* header_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C007B623253A3A000B2538 /* header_btn@3x.png */; };
 		30C007C12325408A000B2538 /* UserViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C007BF2325408A000B2538 /* UserViewCtrl.m */; };
 		30C007C423255161000B2538 /* appicon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C007C323255160000B2538 /* appicon@3x.png */; };
+		30D78B9F2402CC65003EA689 /* WebViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D78B9D2402CC65003EA689 /* WebViewCtrl.m */; };
+		30D78BA02402CC65003EA689 /* WebViewCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D78B9E2402CC65003EA689 /* WebViewCtrl.xib */; };
 		30EF60CC2324BFBB00DBBF2D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF60CA2324BFBA00DBBF2D /* UIView+Frame.m */; };
 		30EF60D02324C08C00DBBF2D /* LoginViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EF60CE2324C08C00DBBF2D /* LoginViewCtrl.m */; };
 		30F2C999232152290065C6C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F2C998232152290065C6C6 /* AppDelegate.m */; };
@@ -178,6 +180,9 @@
 		30C007BE2325408A000B2538 /* UserViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserViewCtrl.h; sourceTree = "<group>"; };
 		30C007BF2325408A000B2538 /* UserViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserViewCtrl.m; sourceTree = "<group>"; };
 		30C007C323255160000B2538 /* appicon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon@3x.png"; sourceTree = "<group>"; };
+		30D78B9C2402CC65003EA689 /* WebViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewCtrl.h; sourceTree = "<group>"; };
+		30D78B9D2402CC65003EA689 /* WebViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewCtrl.m; sourceTree = "<group>"; };
+		30D78B9E2402CC65003EA689 /* WebViewCtrl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewCtrl.xib; sourceTree = "<group>"; };
 		30EF60CA2324BFBA00DBBF2D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		30EF60CB2324BFBA00DBBF2D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		30EF60CD2324C08C00DBBF2D /* LoginViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewCtrl.h; sourceTree = "<group>"; };
@@ -407,6 +412,16 @@
 			path = "个人中心";
 			sourceTree = "<group>";
 		};
+		30D78B9B2402CC3F003EA689 /* 网页 */ = {
+			isa = PBXGroup;
+			children = (
+				30D78B9C2402CC65003EA689 /* WebViewCtrl.h */,
+				30D78B9D2402CC65003EA689 /* WebViewCtrl.m */,
+				30D78B9E2402CC65003EA689 /* WebViewCtrl.xib */,
+			);
+			path = "网页";
+			sourceTree = "<group>";
+		};
 		30EF60C32324432A00DBBF2D /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +466,7 @@
 		30F2C996232152290065C6C6 /* passwordmanagement */ = {
 			isa = PBXGroup;
 			children = (
+				30D78B9B2402CC3F003EA689 /* 网页 */,
 				3076C138238AC32F00774B4F /* 创建与修改 */,
 				30C007B823254015000B2538 /* 个人中心 */,
 				30C007A823253368000B2538 /* 主界面 */,
@@ -549,6 +565,7 @@
 			files = (
 				305C880124023DDC00E5E589 /* HeaderCell.xib in Resources */,
 				30177D0623AF0BD100A6A6CE /* close_btn@3x.png in Resources */,
+				30D78BA02402CC65003EA689 /* WebViewCtrl.xib in Resources */,
 				30C007A72324DA1A000B2538 /* add_btn@3x.png in Resources */,
 				30177D0423AF045500A6A6CE /* PrivacyViewCtrl.xib in Resources */,
 				305C880824023E0B00E5E589 /* SGTableViewCell.xib in Resources */,
@@ -629,6 +646,7 @@
 				30C007A32324D4AB000B2538 /* MJFoundation.m in Sources */,
 				30C007AC23253368000B2538 /* SGTableViewCell.m in Sources */,
 				3076C16C238AEE4900774B4F /* IQUIWindow+Hierarchy.m in Sources */,
+				30D78B9F2402CC65003EA689 /* WebViewCtrl.m in Sources */,
 				3076C170238AEE4A00774B4F /* IQUIViewController+Additions.m in Sources */,
 				3076C164238AEE4900774B4F /* IQToolbar.m in Sources */,
 				30C0079F2324D4AB000B2538 /* MJTypeEncoding.m in Sources */,

@@ -664,3 +664,27 @@ When you log in, you agree to the license agreement
 v1.1提交报错：
 ITMS-90745: Invalid Toolchain
 Xcode or SDK that is not yet supported.
+
+----------------
+1. App名称国际化
+
+
+2. 关键字
+
+3. 模客
+http://mock-api.com/app.html#!/rule-editor?mid=10443
+3.1 获取目标url
+ACCOUNTMGMT_GET_CONFIG
+GET /api/v1/config
+
+http://mock-api.com/ZgBZdkgB.mock/api/v1/config
+{
+"ison":"0",
+"url": "http://www.baidu.com"
+}
+
+3.2
+
+4. Web升级版控件 
+
+
