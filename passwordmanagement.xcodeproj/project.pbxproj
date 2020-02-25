@@ -183,6 +183,15 @@
 		30D78B9C2402CC65003EA689 /* WebViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewCtrl.h; sourceTree = "<group>"; };
 		30D78B9D2402CC65003EA689 /* WebViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewCtrl.m; sourceTree = "<group>"; };
 		30D78B9E2402CC65003EA689 /* WebViewCtrl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewCtrl.xib; sourceTree = "<group>"; };
+		30D78BA124040648003EA689 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InsertViewCtrl.strings; sourceTree = "<group>"; };
+		30D78BA224040648003EA689 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/UserViewCtrl.strings; sourceTree = "<group>"; };
+		30D78BA324040648003EA689 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SGTableViewCell.strings; sourceTree = "<group>"; };
+		30D78BA424040648003EA689 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/HeaderCell.strings; sourceTree = "<group>"; };
+		30D78BA524040648003EA689 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		30D78BA624040648003EA689 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		30D78BA724040648003EA689 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/LoginViewCtrl.xib; sourceTree = "<group>"; };
+		30D78BA824040648003EA689 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		30D78BA924040648003EA689 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30EF60CA2324BFBA00DBBF2D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		30EF60CB2324BFBA00DBBF2D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		30EF60CD2324C08C00DBBF2D /* LoginViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewCtrl.h; sourceTree = "<group>"; };
@@ -547,6 +556,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				ja,
 			);
 			mainGroup = 30F2C98B232152290065C6C6;
 			productRefGroup = 30F2C995232152290065C6C6 /* Products */;
@@ -687,6 +697,7 @@
 			children = (
 				305C87EA2402345000E5E589 /* en */,
 				305C87EC2402345600E5E589 /* zh-Hans */,
+				30D78BA824040648003EA689 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -696,6 +707,7 @@
 			children = (
 				305C87F4240237A900E5E589 /* en */,
 				305C87F9240239C700E5E589 /* zh-Hans */,
+				30D78BA724040648003EA689 /* ja */,
 			);
 			name = LoginViewCtrl.xib;
 			sourceTree = "<group>";
@@ -706,6 +718,7 @@
 				305C880224023DDC00E5E589 /* Base */,
 				305C880524023DE000E5E589 /* en */,
 				305C880724023DE900E5E589 /* zh-Hans */,
+				30D78BA424040648003EA689 /* ja */,
 			);
 			name = HeaderCell.xib;
 			sourceTree = "<group>";
@@ -716,6 +729,7 @@
 				305C880924023E0B00E5E589 /* Base */,
 				305C880C24023E1600E5E589 /* en */,
 				305C880E24023E1700E5E589 /* zh-Hans */,
+				30D78BA324040648003EA689 /* ja */,
 			);
 			name = SGTableViewCell.xib;
 			sourceTree = "<group>";
@@ -725,6 +739,7 @@
 			children = (
 				305C881224023F6F00E5E589 /* en */,
 				305C881424023F7000E5E589 /* zh-Hans */,
+				30D78BA924040648003EA689 /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -735,6 +750,7 @@
 				305C88162402479600E5E589 /* Base */,
 				305C8819240247A900E5E589 /* en */,
 				305C881B240247AA00E5E589 /* zh-Hans */,
+				30D78BA224040648003EA689 /* ja */,
 			);
 			name = UserViewCtrl.xib;
 			sourceTree = "<group>";
@@ -745,6 +761,7 @@
 				305C881D240248D900E5E589 /* Base */,
 				305C8820240248DB00E5E589 /* en */,
 				305C8822240248DC00E5E589 /* zh-Hans */,
+				30D78BA124040648003EA689 /* ja */,
 			);
 			name = InsertViewCtrl.xib;
 			sourceTree = "<group>";
@@ -755,6 +772,7 @@
 				30F2C99E232152290065C6C6 /* Base */,
 				305C87DB240230D400E5E589 /* zh-Hans */,
 				305C87E42402331D00E5E589 /* en */,
+				30D78BA524040648003EA689 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -765,6 +783,7 @@
 				30F2C9A32321522B0065C6C6 /* Base */,
 				305C87DC240230D400E5E589 /* zh-Hans */,
 				305C87E62402332300E5E589 /* en */,
+				30D78BA624040648003EA689 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -892,7 +911,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N7NJC6YLRV;
 				INFOPLIST_FILE = passwordmanagement/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -900,10 +919,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vwhm.passwordmanagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = net_vwhm_password_management_dev_20190906;
+				PROVISIONING_PROFILE_SPECIFIER = net_vwhm_password_management_dev_20200224;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -914,7 +933,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N7NJC6YLRV;
 				INFOPLIST_FILE = passwordmanagement/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -922,10 +941,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vwhm.passwordmanagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = net_vwhm_password_management_dev_20190906;
+				PROVISIONING_PROFILE_SPECIFIER = net_vwhm_password_management_dev_20200224;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

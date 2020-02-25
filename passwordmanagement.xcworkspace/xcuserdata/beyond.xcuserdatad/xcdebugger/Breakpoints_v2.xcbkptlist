@@ -26,8 +26,8 @@
             timestampString = "598682932.821077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -43,8 +43,8 @@
             timestampString = "598682932.823966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -60,8 +60,8 @@
             timestampString = "598682932.824145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "-addBtnClicked:"
             landmarkType = "7">
          </BreakpointContent>
@@ -77,8 +77,8 @@
             timestampString = "598682932.824351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "-showAddBtn"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,9 +94,41 @@
             timestampString = "598682932.824766"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "-searchBtnClicked:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "912538BB-F649-4086-86CB-336006477B86"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "passwordmanagement/&#x4e3b;&#x754c;&#x9762;/ViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C77D0C50-1B31-4FC6-9F52-BDFACCD8233D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "passwordmanagement/&#x4e3b;&#x754c;&#x9762;/ViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-isDuringAPPCheckDays"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

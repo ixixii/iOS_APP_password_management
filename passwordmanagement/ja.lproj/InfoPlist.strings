@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  passwordmanagement
+
+  Created by beyond on 2020/02/23.
+  Copyright © 2020 beyond. All rights reserved.
+*/
+CFBundleDisplayName = "アカウント管理";

@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  passwordmanagement
+
+  Created by beyond on 2020/02/23.
+  Copyright © 2020 beyond. All rights reserved.
+*/
+"i18n_login" = "登録";
+"i18n_accountType" = "アカウントのタイプ";
+"i18n_account" = "アカウント";
+"i18n_loginpassword" = "ログインパスワード";
+"i18n_paypassword" = "支払いパスワード";
+"i18n_usedpassword" = "パスワードを使っていました";
+"i18n_username" = "ユーザ名";
+"i18n_telephone" = "携帯番号";
+"i18n_email" = "メール";
+"i18n_securityemail" = "セキュリティメール";
+"i18n_securityquestion" = "安全問題";
+"i18n_loginby" = "ログインモード";
+"i18n_loginurl" = "ログインページ";
+"i18n_website" = "ホームページ";
+"i18n_shareurl" = "広報ページ";
+"i18n_ipaddress" = "IPアドレス";
+"i18n_cardno" = "銀行カード番号";
+"i18n_cardaddress" = "銀行の名前";
+"i18n_billdate" = "請求書の日";
+"i18n_paydate" = "支払い日";
+"i18n_createtime" = "作成日";
+"i18n_updatetime" = "変更日";
+"i18n_expiredate" = "締切日";
+"i18n_isvip" = "VIPかどうか";
+"i18n_needvpn" = "VPNかどうか";
+
+"i18n_remark" = "コメント";
+"i18n_cancel" = "キャンセル";
+"i18n_confirm" = "OK";
+"i18n_querytitle" = "検索するキーワードを入力してください";
+"i18n_queryhint" = "OK ボタンをクリックすると、すべてのアカウントが表示されます";
+
+"i18n_welcome" = "お帰りなさい";
+"i18n_modifyaccount" = "アカウントを変更";

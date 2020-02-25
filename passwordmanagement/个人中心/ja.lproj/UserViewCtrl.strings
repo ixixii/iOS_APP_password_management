@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "帐号管理 v1.2"; ObjectID = "nxF-pI-acz"; */
+"nxF-pI-acz.text" = "アカウント管理 v1.2";
+
+/* Class = "UIButton"; normalTitle = "退　出"; ObjectID = "xgS-Ah-2Dh"; */
+"xgS-Ah-2Dh.normalTitle" = "ログオフ";

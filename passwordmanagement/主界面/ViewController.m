@@ -22,6 +22,12 @@
 
 #define kColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
+// 预估 app提交至通过审核的天数
+#define kAppCheckDays 3
+
+// YYYY-MM-DD  必须是两位,APP提交审核时的日期
+#define kAppUploadYYMMDD @"2020-02-25"
+
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchControllerDelegate,UIAlertViewDelegate>
 {
     NSArray *_dictArr;
@@ -62,10 +68,45 @@
     // 右上角搜索按钮
     [self addLeftBtn];
     
-    // 首先请求mock api，如果开关打开，则跳转到webview升级版
-    // 如果开关关闭，则请求列表数据
-    [self mockapirequest];
+    // 首先判断是否在审核期内，
+    if([self isDuringAPPCheckDays]){
+        // 审核期内，则直接请求列表接口
+        [self requestData];
+    }else{
+        // 过了审核期，则先请求mock api，如果开关打开，则跳转到webview升级版
+        // 如果开关关闭，则请求列表数据
+        [self mockapirequest];
+    }
+    
 }
+
+- (BOOL)isDuringAPPCheckDays
+{
+    NSInteger daySpan = [self daySpanFromUploadDateString:[NSString stringWithFormat:@"%@ 11:11:11",kAppUploadYYMMDD]];
+//    NSLog(@"sg__dayspan__%ld",(long)daySpan);
+    if (daySpan < kAppCheckDays) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+// 日期差(投稿日期)
+- (NSInteger)daySpanFromUploadDateString:(NSString *)date {
+    //获得当前时间
+    NSDate *now = [NSDate date];
+    //实例化一个NSDateFormatter对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *oldDate = [dateFormatter dateFromString:date];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    unsigned int unitFlags = NSDayCalendarUnit;
+    NSDateComponents *comps = [gregorian components:unitFlags fromDate:oldDate  toDate:now  options:0];
+    return [comps day];
+}
+
+
 - (void)mockapirequest
 {
     

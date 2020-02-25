@@ -688,3 +688,82 @@ http://mock-api.com/ZgBZdkgB.mock/api/v1/config
 4. Web升级版控件 
 
 
+----------------
+appstore上面，itunesconnect
+1.2版本
+版本信息 -> 新增：本地化英文
+
+关键词：
+Password mgmt, Account mgmt,Password management, Account management,account password,accout,accont
+
+App描述：
+Use this account management app, It is very convenient for you to save、view、 modify and search all your accounts and passwords.
+At the same time, dozens of relevant information can be saved for each account.
+Powerful fuzzy search can help you quickly find a specific account among hundreds of accounts according to any field.
+
+
+关键词 所有候选项：
+拉伯配资、股票、股票配资、配资、炒股、 股票交易 、配资平台 、配资开户 、配资软件 、炒股开户 、炒股软件、 股票开户、 股票软件、赤盈、环球、杜德、启天、丰诺、迈亿、海智投、拉伯万宝、金鼎配资、场外配资、股票数据查询、策略行情、赤赢、环球配资
+
+关键词：
+账号管理,密码管理,账号薄,密码薄,賬號,密碼,賬號密碼,账号密码,密码箱,账号密码助手,密码本,账号本,管理密码,密码管理器,密码箱,配资,数据查询,拉伯配资,策略行情,配资开户,环球,场外配资
+
+App描述：
+使用此帐户管理应用程序，您可以非常方便地保存、查看、修改和搜索所有帐户和密码。
+同时，每个账户都可以保存几十条相关信息。
+强大的模糊搜索功能可以帮助您根据任何字段在数百个帐户中快速找到特定的帐户。
+
+--------------
+新增：日文国际化
+1.App名称国际化
+1.2 project->info->Localizations添加对应语言
+1.2 新建InfoPlist.strings
+1.3 点击右边的Localize...
+1.4 勾选语言
+1.5 分别输入：
+CFBundleDisplayName = "Account Mgmt";
+CFBundleDisplayName = "帐号管理";
+CFBundleDisplayName = "パスワード   アカウント管理";
+
+
+2. storyboard文件国际化
+2.1 搜索.strings文件 
+2.2 照猫画虎添加英文
+
+---------------
+审核期内:
+不发请求
+
+// 日期差(投稿日期)
++ (NSInteger)daySpanFromUploadDateString:(NSString *)date {
+    //获得当前时间
+    NSDate *now = [NSDate date];
+    //实例化一个NSDateFormatter对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *oldDate = [dateFormatter dateFromString:date];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    unsigned int unitFlags = NSDayCalendarUnit;
+    NSDateComponents *comps = [gregorian components:unitFlags fromDate:oldDate  toDate:now  options:0];
+    return [comps day];
+}
+
+ 是否在审核期间
++ (BOOL)isDuringAPPCheckDays
+{
+    NSInteger daySpan = [SGTools daySpanFromUploadDateString:[NSString stringWithFormat:@"%@ 11:11:11",kAppUploadYYMMDD]];
+//    NSLog(@"sg__dayspan__%ld",(long)daySpan);
+    if (daySpan < kAppCheckDays) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+// YYYY-MM-DD  必须是两位
+#define kAppUploadYYMMDD @"2019-03-10"
+
+// app提交至通过审核的天数
+//#define kAppCheckDays 7
+
