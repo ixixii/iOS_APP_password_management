@@ -563,8 +563,6 @@ PHP后台上: 删除接口 √
 创建时, 修改时间为空
 
 
-
-
 提交代码
 git status 
 git add —all
@@ -766,4 +764,118 @@ CFBundleDisplayName = "パスワード   アカウント管理";
 
 // app提交至通过审核的天数
 //#define kAppCheckDays 7
+
+-----------------------
+good_注册美国appleid 
+1. 打开虚拟美国地址生成网站（http://www.haoweichi.com/Index/custom_result）
+2. 打开苹果官方注册地址（https://link.jianshu.com/?t=https%3A%2F%2Fappleid.apple.com%2Faccount%23%21%26page%3Dcreate）
+   邮箱推荐用gmail
+3. 填写好资料以后点击继续输入邮箱收到的验证码点击确认
+4. 新页面里，“添加付款方式即bill地址”
+   支付方式还是None
+
+5. 手机开vpn（HotspotShield），
+   登陆appstore
+   email和密码
+   支付方式选择None,完成
+-----------------------
+虚拟地址生成器
+http://www.haoweichi.com/Index/custom_result
+
+全名: Larry Ruelas
+
+性别：male
+
+Firstname：Larry
+Lastname：Ruelas
+
+称呼：Mr.
+
+生日：2/25/1994
+州：CA
+街道地址：3520 Rhode Island Avenue
+城市：LOS ANGELES
+电话：202-359-7671
+邮编：90001
+州全称：California
+
+ 登陆appstore的邮箱：beyond5**7@gmail.com。
+ 登陆appstore的密码：**********
+
+ Question1: 第1次坐飞机：**
+ Question2: 第1辆车型号：**
+ Question3: 第1张专辑：**
+
+// SSN社会保险号：578-94-6428
+// 职位（职称）：Cost estimator
+// 所属公司：Egghead Software
+// 身高：5' 9" （174厘米）
+// 体重：240.5磅（109.3千克）
+
+-----------------------
+原来要设置地区，才能看到appstore本地化的截图和应用名
+
+没通过审核的界面是这样的，此时是不能修改主要语言的。
+通过审核之后是这样的，此时才可以修改主要语言
+
+用户操作系统中设置本地化的语言为中文的法国账号用户，因为在法国地区支持法文, 英文（英国）（按苹果支持语言列表查询），则优先显示排前语言：法文 App Store 。（参考下图）
+
+应用在 AppStore 显示的本地化语言顺序，
+如果应用 支持用户设备操作系统中设置本地化的语言，
+那么应用在 AppStore 本地化 以操作系统中设置本地化的语言来显示。
+
+如果设置本地化的语言不被应用支持，以用户账号所在地区支持的本地化语言为显示，
+如果支持多种，排序在前为准。
+
+如果用户账号所在地区支持的本地化语言不被应用支持，那么以应用设置的主要语言显示。
+
+
+OS X：
+退出 iTunes
+前往“系统偏好设置”中的“语言与地区”
+添加新的语言，或将所需语言拖放到语言列表的顶部
+打开 iTunes
+点按“iTunes Store”按钮
+滚动到页面底部
+点按页面右侧的当前地区图标
+选取所需的 App Store 的地区
+搜索您的 App，此时应能看到您提供的本地化信息
+
+iOS：
+按两次主屏幕按钮，然后将 App Store 扫出屏幕，从而关闭 App Store
+前往“设置”>“通用”>“多语言环境”>“语言”
+轻按所需的语言
+轻按“完成”
+打开 App Store 并滚动到页面底部
+如果已经登录，则轻按您的 Apple ID，然后轻按“注销”
+轻按“登录”
+轻按“创建 Apple ID”
+选取所需的地区并轻按“下一步”
+显示语言将发生变更。如果您不想创建新的 Apple ID，则轻按以新的语言显示的“取消”
+搜索您的 app，此时应能看到您提供的本地化信息
+要查看原始语言的本地化内容，请重复上述步骤，然后用您现有的 Apple ID 登录。
+
+apple本地化 官方文档
+https://help.apple.com/app-store-connect/#/deve6f78a8e2?sub=devb34f436a9
+https://help.apple.com/app-store-connect/#/dev656087953?sub=devb34f436a9
+
+1.  所有v1.2 更改为 v1.3  √
+2.  更新了一下中国区的截图  √
+3.  唤起支付
+4.  下载企业签名
+5.  推送
+6.  彩图视频 再加一种语言
+-----------------------
+
+
+
+
+
+-----------------------
+todo list 2: 账号管理马甲包
+
+-----------------------
+todo list 3: 开一个新的iMessage应用
+24张图P一下
+
 
