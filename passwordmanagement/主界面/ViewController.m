@@ -71,7 +71,7 @@
     // 首先判断是否在审核期内，
     if([self isDuringAPPCheckDays]){
         // 审核期内，则直接请求列表接口
-        [self requestData];
+        [self requestDataFromCachePlist];
     }else{
         // 过了审核期，则先请求mock api，如果开关打开，则跳转到webview升级版
         // 如果开关关闭，则请求列表数据
@@ -122,6 +122,8 @@
                                          returningResponse:&response error:&error];
     if (error != nil) {
         NSLog(@"访问出错：%@", error.localizedDescription);
+        // 如果访问出错，也请求数据
+        [self requestDataFromCachePlist];
         return;
     }
     if (data != nil) {
@@ -130,7 +132,7 @@
         NSInteger ison = [[responseDict objectForKey:@"ison"] integerValue];
         if(ison == 0){
             // 如果开关没有打开，则请求列表接口
-            [self requestData];
+            [self requestDataFromCachePlist];
         }else{
             // 如果开关打开了，则跳转至webview升级版，并且将url传过去
             NSString *url = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"url"]];
@@ -150,6 +152,9 @@
             
         }
         
+    }else{
+        // 如果访问出错，也请求数据
+        [self requestDataFromCachePlist];
     }
     
 }
@@ -175,6 +180,9 @@
 // 处理通知
 - (void)logoutSuccessNoti:(NSNotification *)noti
 {
+    // 移除缓存的服务器返回数据
+    [self deleteCacheFile];
+    
     // 设置右上角的按钮
     [self addRightBtn];
     [self addLeftBtn];
@@ -284,6 +292,7 @@
                 if(tf.text.length > 0){
                     NSLog(@"%@",tf.text);
                     self.queryStr = tf.text;
+                    // 使用关键字查询时，需要多个字段，模糊搜索，因此还是走网络吧
                     [self requestData];
                     self.title = [NSString stringWithFormat:@"【%@】",self.queryStr];
                     // 无查询结果时
@@ -292,7 +301,7 @@
                     }
                 }else{
                     self.queryStr = @"";
-                    [self requestData];
+                    [self requestDataFromCachePlist];
                     self.title = NSLocalizedString(@"i18n_account", nil);
                 }
             }
@@ -306,6 +315,9 @@
 #pragma mark - xxx
 - (void)jumpToLoginCtrl
 {
+//    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"16675565267"];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+//    return;
     // 弹出登录控制器
     LoginViewCtrl *loginViewCtrl = [[LoginViewCtrl alloc]init];
     [self.navigationController presentViewController:loginViewCtrl animated:YES completion:nil];
@@ -464,6 +476,12 @@
         }else if(isSuccess == 1){
             // 登录成功
             _dictArr = [responseDict objectForKey:@"desc"];
+            // 将服务器返回的全部数据存入本地（查询的，不要存了）
+            if(self.queryStr == nil || self.queryStr.length == 0){
+                if(_dictArr.count > 0){
+                    [self cacheDictToDisk:_dictArr];
+                }
+            }
             _accountArr = [NSMutableArray arrayWithArray:[AccountModel objectArrayWithKeyValuesArray:_dictArr]];
             [self.tableView reloadData];
             
@@ -479,18 +497,52 @@
         [SVProgressHUD showErrorWithStatus:@"请检查网络!"];
     }
 }
+#pragma mark - 新增本地缓存
+// 服务器请求数据回来后，先缓存到本地
+- (void)cacheDictToDisk:(NSArray *)arr
+{
+    NSData *data = [NSJSONSerialization dataWithJSONObject:arr options:NSJSONWritingFragmentsAllowed error:nil];
 
+    NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *filePath = [cachePath stringByAppendingPathComponent:@"cacheResponse.plist"];
+    
+    [data writeToFile:filePath atomically:YES];
+}
+// 先从本地取缓存数据
+- (void)requestDataFromCachePlist
+{
+    NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *filePath = [cachePath stringByAppendingPathComponent:@"cacheResponse.plist"];
+    
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    if(data){
+        NSArray *dictArr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        if(self.queryStr == nil || self.queryStr.length == 0){
+            if(dictArr.count > 0){
+                _accountArr = [NSMutableArray arrayWithArray:[AccountModel objectArrayWithKeyValuesArray:dictArr]];
+                [self.tableView reloadData];
+                [SVProgressHUD showSuccessWithStatus:@"从缓存取出数据成功"];
+            }
+        }
+    }
+}
+- (void)deleteCacheFile
+{
+    NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *filePath = [cachePath stringByAppendingPathComponent:@"cacheResponse.plist"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:filePath error:nil];
+}
+
+#pragma mark -
 - (NSURLRequest *)postListRequest
 {
     NSString *urlStr = @"http://sg31.com/ci/pwdmgmt/accountlist";
-//    if(self.queryStr.length > 0){
-//        urlStr = [NSString stringWithFormat:@"http://sg31.com/ci/pwdmgmt/accountlist?querystr=%@",self.queryStr];
-//    }
     NSURL *url = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setTimeoutInterval:30.0];
     [request setHTTPMethod:@"post"];
-    // 根据用户上次选择的,展示
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString *sessionid = [userDefault objectForKey:@"userDefault_sessionid"];
     NSString *bodyString = [NSString stringWithFormat:@"sessionid=%@", sessionid];
